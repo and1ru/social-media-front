@@ -4,6 +4,7 @@ import { LoginPage } from "../page/login-page";
 import { RootPage } from "../page/root-page";
 import { ChatsPage } from "../page/chats-page";
 import { SocialPage } from "../page/social-page";
+import { FriendsPage } from "../page/friends-page";
 
 export const routes = createBrowserRouter([
     {
@@ -29,6 +30,10 @@ export const routes = createBrowserRouter([
             {
                 path: "social",
                 element: <SocialPage/>
+            },
+            {
+                path: "friends",
+                element: <FriendsPage/>
             }
         ]
     }
