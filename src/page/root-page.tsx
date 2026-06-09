@@ -5,7 +5,7 @@ export const RootPage = () => {
   return (
     <>
         <HeaderComponent/>
-        <main className="p-5"><Outlet/></main>
+        <main className="p-5 h-sreen"><Outlet/></main>
     </>
   );
 };
