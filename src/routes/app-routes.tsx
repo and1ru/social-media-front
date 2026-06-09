@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RegisterPage } from "../page/register-page";
 import { LoginPage } from "../page/login-page";
+import { RootPage } from "../page/root-page";
+import { ChatsPage } from "../page/chats-page";
 
 export const routes = createBrowserRouter([
     {
@@ -14,5 +16,15 @@ export const routes = createBrowserRouter([
     {
         path: "login",
         element: <LoginPage/>
+    },
+    {
+        path: "/private/",
+        element: <RootPage/>,
+        children: [
+            {
+               path: "chats",
+               element: <ChatsPage/> 
+            }
+        ]
     }
 ])
