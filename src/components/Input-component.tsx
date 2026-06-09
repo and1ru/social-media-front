@@ -16,9 +16,9 @@ export const InputComponent = <T extends FieldValues>({name, control, type, erro
     <Controller
         name={name}
         control={control}
-        render={({field}) => (<input {...field} type={type} id={name}/>)}
+        render={({field}) => (<input {...field} type={type} id={name} className="border focus:outline-none p-2 rounded-lg"/>)}
     />
-    { error && <p>{error.message}</p>}
+    { error && <p className="text-red-500">{error.message}</p>}
     </>
 
   );
