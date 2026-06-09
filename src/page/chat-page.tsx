@@ -15,7 +15,9 @@ export const ChatPage = () => {
   return (
     <>
         <div className="border h-20"></div>
-        <div className="h-114 border">
+        <div className="flex flex-col gap-5 h-114 border p-3 overflow-auto">
+            <MessageTargetComponent/>
+            <MessageTargetComponent/>
             <MessageTargetComponent/>
         </div>
         <div>
