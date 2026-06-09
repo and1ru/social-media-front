@@ -6,12 +6,13 @@ export const HeaderComponent = () => {
         navegar(url, {replace:true})
     }
   return (
-    <header>
+    <header className="p-3 border-b">
         <nav>
-            <ul>
+            <ul className="flex justify-around">
                 <li onClick={() => onClick("chats")}>chat</li>
                 <li onClick={() => onClick("social")}>social</li>
                 <li onClick={() => onClick("friends")}>friends</li>
+                <li onClick={() => onClick("/login")}>salir</li>
             </ul>
         </nav>
     </header>
