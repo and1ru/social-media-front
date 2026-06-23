@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useRegister } from "../cutomhooks/useRegister";
 
 export const RegisterPage = () => {
-    const {error, loading, register} = useRegister()
+    const {error, loading, register, success} = useRegister()
     const { handleSubmit, control, formState: { errors } } = useForm<registerType>({
         defaultValues: {
             confirmPassword: "",
@@ -23,8 +23,9 @@ export const RegisterPage = () => {
     const handleForm: SubmitHandler<registerType> = async (data) => {
         const result = await register(data)
         console.log(result)
-        if(error) return
-        await navegar("/login", { replace: true })
+        if(success){
+            navegar("/login", { replace: true })
+        }
     }
 
     function onClickNavigate(url: string) {
