@@ -3,8 +3,10 @@ import { registerSchema, type registerType } from "../schemas/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputComponent } from "../components/Input-component";
 import { useNavigate } from "react-router-dom";
+import { useRegister } from "../cutomhooks/useRegister";
 
 export const RegisterPage = () => {
+    const {error, loading, register} = useRegister()
     const { handleSubmit, control, formState: { errors } } = useForm<registerType>({
         defaultValues: {
             confirmPassword: "",
@@ -16,7 +18,8 @@ export const RegisterPage = () => {
         resolver: zodResolver(registerSchema)
     })
 
-    const handleForm: SubmitHandler<registerType> = (data) => {
+    const handleForm: SubmitHandler<registerType> = async (data) => {
+        await register(data)
         console.log(data)
     }
 
@@ -26,6 +29,9 @@ export const RegisterPage = () => {
         navegar(url, { replace: true })
     }
 
+    if(error) return  <p>error</p>
+    if(loading) return <p>loading</p>
+    
     return (
         <main className="py-10 px-10">
             <section className="border rounded-lg py-10">
