@@ -18,22 +18,23 @@ export const RegisterPage = () => {
         resolver: zodResolver(registerSchema)
     })
 
-    const handleForm: SubmitHandler<registerType> = async (data) => {
-        await register(data)
-        console.log(data)
-    }
-
     const navegar = useNavigate()
+
+    const handleForm: SubmitHandler<registerType> = async (data) => {
+        const result = await register(data)
+        console.log(result)
+        if(error) return
+        await navegar("/login", { replace: true })
+    }
 
     function onClickNavigate(url: string) {
         navegar(url, { replace: true })
     }
-
-    if(error) return  <p>error</p>
-    if(loading) return <p>loading</p>
     
     return (
         <main className="py-10 px-10">
+            { error && <p>error</p>}
+            { loading && <p>loading</p>}
             <section className="border rounded-lg py-10">
                 <h1 className="text-center text-2xl font-bold">REGISTER</h1>
                 <form
@@ -44,7 +45,6 @@ export const RegisterPage = () => {
                     <InputComponent control={control} name="password" label="password" type="password" error={errors.password} />
                     <InputComponent control={control} name="confirmPassword" label="confirm password" type="password" error={errors.confirmPassword} />
                     <button
-                        onClick={() => onClickNavigate("/private/chats")}
                         className="bg-gray-800 p-2 rounded-lg text-white">Enviar</button>
                 </form>
                 <p
