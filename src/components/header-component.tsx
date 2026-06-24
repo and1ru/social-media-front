@@ -9,9 +9,9 @@ export const HeaderComponent = () => {
     <header className="p-3 border-b">
         <nav>
             <ul className="flex justify-around">
-                <li onClick={() => onClick("chats")}>chat</li>
-                <li onClick={() => onClick("social")}>social</li>
-                <li onClick={() => onClick("friends")}>friends</li>
+                <li onClick={() => onClick("/private/chats")}>chat</li>
+                <li onClick={() => onClick("/private/social")}>social</li>
+                <li onClick={() => onClick("/private/friends")}>friends</li>
                 <li onClick={() => onClick("/login")}>salir</li>
             </ul>
         </nav>

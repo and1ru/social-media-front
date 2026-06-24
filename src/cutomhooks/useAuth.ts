@@ -9,7 +9,6 @@ export const useAuth = () => {
     const auth = async () => {
         try {
             const request = await apiClient.get("auth/me", { withCredentials: true })
-            console.log(`este es el auth ${request.data}`)
             setAuthenticated(request.data.success)
         } catch (error) {
             if (axios.isAxiosError(error)) {
