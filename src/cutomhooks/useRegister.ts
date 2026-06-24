@@ -17,9 +17,9 @@ export const useRegister = <T>() => {
       setSuccess(true)
     } catch (error) {
         if(axios.isAxiosError(error)){
-            console.log(error.response?.status);
-            console.log(error.response?.data);
-            console.log(error.response?.data.message);
+          console.log(error.response?.status);
+          console.log(error.response?.data);
+          console.log(error.response?.data.message);
         }
       setError(true);
       setSuccess(false)
