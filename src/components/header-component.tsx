@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { ButtonLogOut } from "./button-logOut";
 
 export const HeaderComponent = () => {
     const navegar = useNavigate()
@@ -12,7 +13,7 @@ export const HeaderComponent = () => {
                 <li onClick={() => onClick("/private/chats")}>chat</li>
                 <li onClick={() => onClick("/private/social")}>social</li>
                 <li onClick={() => onClick("/private/friends")}>friends</li>
-                <li onClick={() => onClick("/login")}>salir</li>
+                <li><ButtonLogOut/></li>
             </ul>
         </nav>
     </header>
