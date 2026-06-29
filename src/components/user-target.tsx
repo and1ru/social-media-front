@@ -1,11 +1,14 @@
+import { SendRequest } from "./send-request";
+
 interface Props {
     name:string;
+    id:string;
 }
-export const UserTarget = ({name}:Props) => {
+export const UserTarget = ({name, id}:Props) => {
     return (
         <div className="border p-4 rounded-lg">
             <p>{name}</p>
-            <button className="border p-2 rounded-lg">enviar solicitud</button>
+            <SendRequest id={id}/>
         </div>
     );
 };

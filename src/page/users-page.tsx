@@ -21,7 +21,7 @@ export const UsersPage = () => {
         <HeaderComponent/>
         <main className="p-5">
           <section className="flex flex-col gap-5">
-            {data.map((user) => <UserTarget name={user.name} key={user._id}/> )}
+            {data.map((user) => <UserTarget name={user.name} key={user._id} id={user._id}/> )}
           </section>
         </main>
     </>
