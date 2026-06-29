@@ -6,6 +6,7 @@ import { ChatsPage } from "../page/chats-page";
 import { SocialPage } from "../page/social-page";
 import { FriendsPage } from "../page/friends-page";
 import { ChatPage } from "../page/chat-page";
+import { UsersPage } from "../page/users-page";
 
 export const routes = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const routes = createBrowserRouter([
             {
                 path: "chat",
                 element: <ChatPage/>
+            },
+            {
+                path: "users",
+                element: <UsersPage/>
             }
         ]
     }
