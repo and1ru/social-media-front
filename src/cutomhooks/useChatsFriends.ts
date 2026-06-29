@@ -11,13 +11,9 @@ export const useChatsFriends = <T>() => {
   const chatFriends = async () => {
     setLoading(true)
     try {
-      console.log("inicio el intento de obtener a los amigos")
         const request = await apiClient.get("friends", {withCredentials:true})
         // no pasa de aqui
-        console.log("obtiene los amigos")
-        console.log(request.data)
         setData(request.data.result)
-        console.log(request.data.result)
         setSuccess(true)
     } catch (error) {
       if(axios.isAxiosError(error)){

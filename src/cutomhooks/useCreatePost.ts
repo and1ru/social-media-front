@@ -10,8 +10,7 @@ export const useCreatePost = () => {
     const createPost = async (content:string) => {
         setLoading(true)
         try {
-            const request = await apiClient.post("create-post", { content }, {withCredentials:true})
-            console.log(request)
+            await apiClient.post("create-post", { content }, {withCredentials:true})
             setSuccess(true)
         } catch (error) {
             if(isAxiosError(error)){

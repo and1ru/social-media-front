@@ -21,8 +21,7 @@ export const RegisterPage = () => {
     const navegar = useNavigate()
 
     const handleForm: SubmitHandler<registerType> = async (data) => {
-        const result = await register(data)
-        console.log(result)
+        await register(data)
         if(success){
             navegar("/login", { replace: true })
         }

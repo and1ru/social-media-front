@@ -12,7 +12,6 @@ export const useLoging = <T>() => {
     setLoading(true)
     try {
       const request = await apiClient.post("login", body, {withCredentials:true});
-      console.log(`este es el resultado: ${request.data}`);
       setData(request.data);
       setSuccess(true)
     } catch (error) {

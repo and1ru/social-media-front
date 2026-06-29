@@ -13,7 +13,6 @@ export const useGetPosts = <T>() => {
     try {
         const request = await apiClient.get("get-posts", {withCredentials:true})
         setData(request.data.result)
-        console.log(request.data.result)
         setSuccess(true)
     } catch (error) {
       if(axios.isAxiosError(error)){

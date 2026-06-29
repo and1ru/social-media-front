@@ -12,7 +12,6 @@ export const useRegister = <T>() => {
     setLoading(true);
     try {
       const request = await apiClient.post("register", body,);
-      console.log(request);
       setData(request.data);
       setSuccess(true)
     } catch (error) {

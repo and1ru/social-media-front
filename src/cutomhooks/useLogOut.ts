@@ -8,8 +8,7 @@ export const useLogOut = () => {
     const logOut = async () => {
         setLoading(true)
         try {
-            const request = await apiClient.post("log-out", {}, {withCredentials:true})
-            console.log(request.data)
+            await apiClient.post("log-out", {}, {withCredentials:true})
             setSuccess(true)
         } catch (error) {
             console.log(error)

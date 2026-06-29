@@ -18,7 +18,6 @@ export const LoginPage = () => {
     const navegar = useNavigate()
 
     const handleForm: SubmitHandler<loginType> = (data) => {
-        console.log(data)
         login(data)
         if(success){
             navegar("/private/chats", {replace:true})

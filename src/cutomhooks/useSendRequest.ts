@@ -9,8 +9,7 @@ export const useSendRequest = () => {
     const sendRequest = async () => {
         setLoading(true)
         try {
-            const requset = await apiClient.post("")
-            console.log(requset.data)
+            await apiClient.post("")
             setSuccess(true)
         } catch (error) {
             setError(true)
