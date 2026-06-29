@@ -1,9 +1,16 @@
-export const FreindTargetComponent = () => {
+import { AcceptRequest } from "./accept-request";
+import { RejectRequest } from "./reject-request";
+
+interface Props {
+  id:string;
+}
+
+export const FreindTargetComponent = ({id}:Props) => {
   return (
     <div className="border rounded-lg p-3">
         <p>nombre</p>
-        <button className="bg-green-500 p-2 rounded-lg">Agregar</button>
-        <button className="bg-red-500 p-2 rounded-lg">Rechazar</button>
+        <AcceptRequest requestId={id}/>
+        <RejectRequest id={id} />
     </div>
   );
 };

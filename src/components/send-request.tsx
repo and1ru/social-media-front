@@ -5,7 +5,7 @@ interface Props {
 }
 
 export const SendRequest = ({id}:Props) => {
-    const {error, loading, sendRequest, success} = useSendRequest()
+    const {error, loading, sendRequest} = useSendRequest()
 
     const handleClick = () => {
       sendRequest(id)
