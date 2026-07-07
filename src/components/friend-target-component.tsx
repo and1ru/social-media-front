@@ -7,10 +7,12 @@ interface Props {
 
 export const FreindTargetComponent = ({id}:Props) => {
   return (
-    <div className="border rounded-lg p-3">
+    <div className="border rounded-lg p-3 flex justify-between">
         <p>nombre</p>
-        <AcceptRequest requestId={id}/>
-        <RejectRequest id={id} />
+        <div className="self-end">
+          <AcceptRequest requestId={id}/>
+          <RejectRequest id={id} />
+        </div>
     </div>
   );
 };

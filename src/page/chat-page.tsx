@@ -1,5 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MessageTargetComponent } from "../components/message-target-component";
+import { io } from "socket.io-client";
+
+const socket = io("http://localhost:3000", {
+    withCredentials:true
+})
 
 export const ChatPage = () => {
     const [message, setMessage] = useState<string>("")
@@ -12,8 +17,19 @@ export const ChatPage = () => {
         console.log(message)
     }
 
+    useEffect(()=> {
+        socket.on("saludo-inicio", (data) => {
+            console.log(data)
+        })
+
+        return () => {
+            socket.off("saludo-inicio")
+        }
+    },[])
+
   return (
     <>
+    
         <div className="border h-20"></div>
         <div className="flex flex-col gap-5 h-114 border p-3 overflow-auto">
             <MessageTargetComponent/>

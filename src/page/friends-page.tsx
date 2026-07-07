@@ -12,9 +12,9 @@ export const FriendsPage = () => {
   return (
     <>
         <HeaderComponent/>
-        <h1 className="text-2xl text-center font-bold mb-8">Friends</h1>
+        <h1 className="text-2xl text-center font-bold my-8">Friends</h1>
         <FindUser/>
-        <section className="flex flex-col gap-7">
+        <section className="flex flex-col gap-7 p-5">
           {data.map((request) => <FreindTargetComponent key={request._id} id={request._id}/> )}
         </section>
     </>

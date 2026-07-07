@@ -13,9 +13,9 @@ export const SocialPage = () => {
   return (
     <>
     <HeaderComponent/>
-        <h1 className="text-center text-2xl font-bold mb-7">Social</h1>
+        <h1 className="text-center text-2xl font-bold my-7">Social</h1>
         <CreatePost/>
-        <section className="flex flex-col gap-10">
+        <section className="flex flex-col gap-10 p-5">
           {data?.map((post) => <PostTargetComponent key={post._id} contenido={post.content} fecha={post.fecha} likes={post.likes} />)}
         </section>
     </>

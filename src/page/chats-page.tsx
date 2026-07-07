@@ -12,7 +12,7 @@ export const ChatsPage = () => {
     <>
       <HeaderComponent/>
         <h1 className="text-center text-2xl font-bold mb-5">CHATS</h1>
-        <section className="flex flex-col gap-5">
+        <section className="flex flex-col gap-5 p-5">
         {data?.map((chat) => <ChatTargetComponent/>)}
         </section>
     </>

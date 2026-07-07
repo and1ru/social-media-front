@@ -6,7 +6,7 @@ interface Props {
 }
 export const UserTarget = ({name, id}:Props) => {
     return (
-        <div className="border p-4 rounded-lg">
+        <div className="border p-4 rounded-lg flex justify-between">
             <p>{name}</p>
             <SendRequest id={id}/>
         </div>

@@ -16,8 +16,9 @@ export const FindUser = () => {
 
   return (
     <section>
-        <form onSubmit={handleSubmit}>
-            <input type="text" className="border" value={name} onChange={handleInput} />
+        <form onSubmit={handleSubmit} className="flex flex-col">
+            <input type="text" placeholder="user name"
+            className="border rounded-lg p-2 focus:outline-none w-80 self-center" value={name} onChange={handleInput} />
         </form>
     </section>
   );

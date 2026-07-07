@@ -24,9 +24,9 @@ export const CreatePost = () => {
     }
 
   return (
-    <section>
-        <button className="p-2 border rounded-lg" onClick={handleOpen}>Crear Post</button>
-        <dialog ref={dialogRef} className="w-100 h-100 p-5">
+    <section className="flex flex-col">
+        <button className="p-2 mb-5 w-40 border rounded-lg self-center" onClick={handleOpen}>Crear Post</button>
+        <dialog ref={dialogRef} className="w-100 h-110 rounded-lg p-5 mt-10 mx-auto backdrop:bg-black/60">
             <h1 className="text-center text-2xl font-bold mb-5">create post</h1>
             <form className="flex flex-col gap-5 mb-5" onSubmit={handleForm}>
                 <textarea 

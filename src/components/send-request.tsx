@@ -14,6 +14,6 @@ export const SendRequest = ({id}:Props) => {
     if(error) <p>error</p>
     if(loading) <p>loading</p>
   return (
-    <button onClick={handleClick}>send request</button>
+    <button onClick={handleClick} className="p-2 rounded-lg bg-blue-500">send request</button>
   );
 };
