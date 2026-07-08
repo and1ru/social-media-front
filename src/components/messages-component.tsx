@@ -1,30 +1,23 @@
-import { useEffect, useState } from "react";
+import { useGetMessages } from "../cutomhooks/useGetMessages";
 import { MessageTargetComponent } from "./message-target-component";
-import { socket } from "../cutomhooks/api.socket";
 
 interface messageT {
+    _id:string
     senderId: string;
     message: string;
     createAt: string;
 }
 
-export const MessageComponent = () => {
-    const [messages, setMessages] = useState<messageT[]>([])
+interface Props {
+    id:string;
+}
 
-    useEffect(()=> {
-        socket.on("receive-message", (data) => {
-            console.log(data)
-            setMessages(prev => [...prev, data]);
-        })
-
-        return () => {
-            socket.off("receive-message")
-        }
-    },[])
+export const MessageComponent = ({ id }:Props) => {
+    const { data } = useGetMessages<messageT>(id)
 
   return (
             <div className="flex flex-col gap-5 h-122 border p-3 overflow-auto">
-                {messages.map((message) => <MessageTargetComponent createAt={message.createAt} message={message.message}/> )}
+                {data.map((message) => <MessageTargetComponent createAt={message.createAt} message={message.message} key={message._id}/> )}
         </div>
   );
 };

@@ -8,6 +8,8 @@ export const ChatPage = () => {
     const [message, setMessage] = useState<string>("")
     const { id } = useParams()
 
+    if(!id) return
+
     function handleMessage(e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) {
         setMessage(e.target.value)
     }
@@ -23,7 +25,6 @@ export const ChatPage = () => {
         })
 
         console.log(message)
-        console.log(id)
 
         setMessage('')
     }
@@ -35,7 +36,7 @@ export const ChatPage = () => {
             <p>Nombre</p>
             <p>escribiendo</p>
         </div>
-        <MessageComponent/>
+        <MessageComponent id={id}/>
         <div>
             <form className="flex rounded-lg p-2">
                 <input onChange={handleMessage} type="text" value={message} className="w-full focus:outline-none" placeholder="escribe algo..." />
