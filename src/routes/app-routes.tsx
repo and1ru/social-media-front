@@ -38,7 +38,7 @@ export const routes = createBrowserRouter([
                 element: <FriendsPage/>
             },
             {
-                path: "chat",
+                path: "chat/:id",
                 element: <ChatPage/>
             },
             {

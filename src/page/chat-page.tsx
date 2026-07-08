@@ -1,43 +1,43 @@
-import { useEffect, useState } from "react";
-import { MessageTargetComponent } from "../components/message-target-component";
-import { io } from "socket.io-client";
-
-const socket = io("http://localhost:3000", {
-    withCredentials:true
-})
+import { useState } from "react";
+import { HeaderComponent } from "../components/header-component";
+import { useParams } from "react-router-dom";
+import { socket } from "../cutomhooks/api.socket";
+import { MessageComponent } from "../components/messages-component";
 
 export const ChatPage = () => {
     const [message, setMessage] = useState<string>("")
+    const { id } = useParams()
 
     function handleMessage(e:React.ChangeEvent<HTMLInputElement, HTMLInputElement>) {
         setMessage(e.target.value)
     }
 
     function handleClick() {
-        console.log(message)
-    }
+        if(message.trim() === ''){
+            return
+        }
 
-    useEffect(()=> {
-        socket.on("saludo-inicio", (data) => {
-            console.log(data)
+        socket.emit("send-message", {
+            message,
+            friendId: id
         })
 
-        return () => {
-            socket.off("saludo-inicio")
-        }
-    },[])
+        console.log(message)
+        console.log(id)
+
+        setMessage('')
+    }
 
   return (
     <>
-    
-        <div className="border h-20"></div>
-        <div className="flex flex-col gap-5 h-114 border p-3 overflow-auto">
-            <MessageTargetComponent/>
-            <MessageTargetComponent/>
-            <MessageTargetComponent/>
+    <HeaderComponent/>
+        <div className="h-20 p-3">
+            <p>Nombre</p>
+            <p>escribiendo</p>
         </div>
+        <MessageComponent/>
         <div>
-            <form className="flex border rounded-lg p-2">
+            <form className="flex rounded-lg p-2">
                 <input onChange={handleMessage} type="text" value={message} className="w-full focus:outline-none" placeholder="escribe algo..." />
                 <button className="p-2 border-l" type="button" onClick={handleClick}>enviar</button>
             </form>

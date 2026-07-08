@@ -2,8 +2,13 @@ import { ChatTargetComponent } from "../components/chat-target-component";
 import { HeaderComponent } from "../components/header-component";
 import { useChatsFriends } from "../cutomhooks/useChatsFriends";
 
+interface DataType {
+  name:string;
+  id:string;
+}
+
 export const ChatsPage = () => {
-  const { data, error,  loading } = useChatsFriends()
+  const { data, error,  loading } = useChatsFriends<DataType>()
 
   {error && <p>error</p>}
   {loading && <p>loading</p>}
@@ -13,7 +18,7 @@ export const ChatsPage = () => {
       <HeaderComponent/>
         <h1 className="text-center text-2xl font-bold mb-5">CHATS</h1>
         <section className="flex flex-col gap-5 p-5">
-        {data?.map((chat) => <ChatTargetComponent/>)}
+        {data?.map((chat) => <ChatTargetComponent key={chat.id} name={chat.name} id={chat.id}/>)}
         </section>
     </>
   );
