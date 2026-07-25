@@ -12,6 +12,8 @@ export const ButtonLogOut = () => {
     }
     if(!loading) <p>cargando</p>
   return (
-    <button onClick={handleClick}>salir</button>
+    <button 
+    className="bg-red-500 px-3 py-2"
+    onClick={handleClick}>salir</button>
   );
 };

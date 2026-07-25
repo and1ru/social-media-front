@@ -1,19 +1,24 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ButtonLogOut } from "./button-logOut";
 
 export const HeaderComponent = () => {
-    const navegar = useNavigate()
-    const onClick = (url:string) => {
-        navegar(url, {replace:true})
-    }
   return (
-    <header className="p-3 border-b">
+    <header className="">
         <nav>
             <ul className="flex justify-around">
-                <li onClick={() => onClick("/private/chats")}>chat</li>
-                <li onClick={() => onClick("/private/social")}>social</li>
-                <li onClick={() => onClick("/private/friends")}>friends</li>
-                <li><ButtonLogOut/></li>
+                <li className="py-4 px-5 rounded-lg">Chat App</li>
+                <li className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg">
+                    <Link to={"/private/chats"}>chat</Link>
+                </li>
+                <li className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg">
+                    <Link to={"/private/social"}>Social</Link>
+                </li>
+                <li className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg">
+                    <Link to={"/private/friends"}>Friends</Link>    
+                </li>
+                <li className="px-3 py-2">
+                    <ButtonLogOut/>
+                </li>
             </ul>
         </nav>
     </header>

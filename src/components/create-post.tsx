@@ -2,44 +2,154 @@ import { useRef, useState } from "react";
 import { useCreatePost } from "../cutomhooks/useCreatePost";
 
 export const CreatePost = () => {
-    const [value, setValue] = useState("")
-    const dialogRef = useRef<HTMLDialogElement | null>(null)
-    const {createPost, error, loading, success} = useCreatePost()
+    const [value, setValue] = useState("");
+    const dialogRef = useRef<HTMLDialogElement | null>(null);
 
-    function handleOpen() {
-        dialogRef.current?.showModal()
-    }
+    const { createPost, error, loading, success } = useCreatePost();
 
-    function handleClose() {
-        dialogRef.current?.close()
-    }
+    const handleOpen = () => dialogRef.current?.showModal();
 
-    function handleValue(e: React.ChangeEvent<HTMLTextAreaElement>) {
-        setValue(e.target.value)
-    }
+    const handleClose = () => {
+        dialogRef.current?.close();
+        setValue("");
+    };
 
-    const handleForm = async (e: React.SubmitEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        await createPost(value)
-    }
+    const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-  return (
-    <section className="flex flex-col">
-        <button className="p-2 mb-5 w-40 border rounded-lg self-center" onClick={handleOpen}>Crear Post</button>
-        <dialog ref={dialogRef} className="w-100 h-110 rounded-lg p-5 mt-10 mx-auto backdrop:bg-black/60">
-            <h1 className="text-center text-2xl font-bold mb-5">create post</h1>
-            <form className="flex flex-col gap-5 mb-5" onSubmit={handleForm}>
-                <textarea 
-                value={value}
-                onChange={handleValue}
-                name="" id="" className="border p-2 focus:outline-none rounded-lg resize-none h-50"></textarea>
-                <button className="w-full p-2 border rounded-lg">crear</button>
-            </form>
-            <button onClick={handleClose} className="w-full p-2 border rounded-lg" >Cerrar</button>
-        </dialog>
-        {loading && <p>loading...</p>}
-        {error && <p>error al intentar crear un post</p>}
-        {success && <p>se creo el post exitosamente</p>}
-    </section>
-  );
+        if (!value.trim()) return;
+
+        await createPost(value);
+
+        if (!error) {
+            handleClose();
+        }
+    };
+
+    return (
+        <section>
+
+            <button
+                onClick={handleOpen}
+                className="
+                    rounded-xl
+                    bg-gray-900
+                    px-6
+                    py-3
+                    font-medium
+                    text-white
+                    transition
+                    hover:bg-gray-700
+                    active:scale-95
+                "
+            >
+                Crear publicación
+            </button>
+
+            <dialog
+                ref={dialogRef}
+                className="
+                    m-auto
+                    w-[95%]
+                    max-w-xl
+                    rounded-2xl
+                    bg-white
+                    p-8
+                    shadow-2xl
+                    backdrop:bg-black/60
+                "
+            >
+                <h2 className="text-2xl font-bold text-gray-900">
+                    Crear publicación
+                </h2>
+
+                <p className="mt-2 text-sm text-gray-500">
+                    Comparte algo con tus amigos.
+                </p>
+
+                <form
+                    onSubmit={handleForm}
+                    className="mt-6 flex flex-col gap-5"
+                >
+                    <textarea
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                        placeholder="¿Qué estás pensando?"
+                        className="
+                            h-56
+                            resize-none
+                            rounded-xl
+                            border
+                            border-gray-300
+                            p-4
+                            outline-none
+                            transition
+                            focus:border-gray-900
+                            focus:ring-2
+                            focus:ring-gray-200
+                        "
+                    />
+
+                    <div className="flex items-center justify-between">
+
+                        <span className="text-sm text-gray-400">
+                            {value.length} caracteres
+                        </span>
+
+                        <div className="flex gap-3">
+
+                            <button
+                                type="button"
+                                onClick={handleClose}
+                                className="
+                                    rounded-lg
+                                    border
+                                    border-gray-300
+                                    px-5
+                                    py-2
+                                    transition
+                                    hover:bg-gray-100
+                                "
+                            >
+                                Cancelar
+                            </button>
+
+                            <button
+                                disabled={loading}
+                                className="
+                                    rounded-lg
+                                    bg-gray-900
+                                    px-5
+                                    py-2
+                                    text-white
+                                    transition
+                                    hover:bg-gray-700
+                                    disabled:cursor-not-allowed
+                                    disabled:opacity-50
+                                "
+                            >
+                                {loading ? "Publicando..." : "Publicar"}
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    {error && (
+                        <p className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
+                            Error al crear la publicación.
+                        </p>
+                    )}
+
+                    {success && (
+                        <p className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
+                            Publicación creada correctamente.
+                        </p>
+                    )}
+
+                </form>
+            </dialog>
+
+        </section>
+    );
 };

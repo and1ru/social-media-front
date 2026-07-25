@@ -6,18 +6,54 @@ interface Props {
     senderId: string;
 }
 
-export const MessageTargetComponent = ({createAt, message, senderId }:Props) => {
-  const { id } = useParams()
-  let messagePosition = true
+export const MessageTargetComponent = ({
+    createAt,
+    message,
+    senderId,
+}: Props) => {
+    const { id } = useParams();
 
-  if(id !== senderId ){
-    messagePosition = false
-  }
+    const isMyMessage = id === senderId;
 
-  return (
-    <div className={`min-w-30 max-w-50 border p-3 rounded-lg ${ messagePosition ? "" : "relative left-40"}`}>
-        <p>{message}</p>
-        <p className="left-full">{createAt}</p>
-    </div>
-  );
+    return (
+        <div
+            className={`flex ${
+                isMyMessage ? "justify-start" : "justify-end"
+            }`}
+        >
+            <article
+                className={`
+                    max-w-[75%]
+                    rounded-2xl
+                    px-4
+                    py-3
+                    shadow-sm
+                    ${
+                        isMyMessage
+                            ? "bg-gray-900 text-white rounded-br-md"
+                            : "bg-white text-gray-900 border border-gray-200 rounded-bl-md"
+                    }
+                `}
+            >
+                <p className="text-sm leading-6">
+                    {message}
+                </p>
+
+                <p
+                    className={`
+                        mt-2
+                        text-right
+                        text-xs
+                        ${
+                            isMyMessage
+                                ? "text-gray-300"
+                                : "text-gray-500"
+                        }
+                    `}
+                >
+                    {createAt}
+                </p>
+            </article>
+        </div>
+    );
 };
