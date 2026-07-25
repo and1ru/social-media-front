@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { socket } from "../cutomhooks/api.socket";
 
 interface Props {
   name:string;
@@ -10,9 +9,6 @@ export const ChatTargetComponent = ({name, id}:Props) => {
   const navegar = useNavigate()
 
   function onClickNavegar() {
-    socket.emit("join-chat",{
-      friendId: id
-    })
     navegar(`/private/chat/${id}`, {replace:true})
   }
 

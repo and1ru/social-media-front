@@ -24,8 +24,6 @@ export const ChatPage = () => {
             friendId: id
         })
 
-        console.log(message)
-
         setMessage('')
     }
 
