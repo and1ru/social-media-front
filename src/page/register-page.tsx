@@ -32,13 +32,13 @@ export const RegisterPage = () => {
     }
     
     return (
-        <main className="py-10 px-10">
+        <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
             { error && <p>error</p>}
             { loading && <p>loading</p>}
-            <section className="border rounded-lg py-10">
+            <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
                 <h1 className="text-center text-2xl font-bold">REGISTER</h1>
                 <form
-                    className="flex flex-col p-10 gap-5"
+                    className="mt-8 flex flex-col gap-5"
                     onSubmit={handleSubmit(handleForm)}>
                     <InputComponent control={control} name="name" label="name" type="text" error={errors.name} />
                     <InputComponent control={control} name="email" label="email" type="email" error={errors.email} />
@@ -48,8 +48,12 @@ export const RegisterPage = () => {
                         className="bg-gray-800 p-2 rounded-lg text-white">Enviar</button>
                 </form>
                 <p
-                    onClick={() => onClickNavigate("/login")}
-                    className="text-blue-400 cursor-pointer text-center">do you have account? login</p>
+                onClick={() => onClickNavigate("/login")}
+                className="mt-8 text-center text-sm text-gray-600">
+                    do you have account?
+                    <span className="cursor-pointer font-semibold text-gray-900 hover:underline"> login</span>
+                    
+                </p>
             </section>
         </main>
     );
