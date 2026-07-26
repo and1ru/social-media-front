@@ -30,7 +30,6 @@ export const ChatTargetComponent = ({ name, id }: Props) => {
             "
         >
             <div className="flex items-center gap-4">
-
                 <div
                     className="
                         flex
@@ -57,12 +56,7 @@ export const ChatTargetComponent = ({ name, id }: Props) => {
                         Click to open chat
                     </p>
                 </div>
-
             </div>
-
-            <span className="text-xl text-gray-400 transition group-hover:text-gray-600">
-                →
-            </span>
         </article>
     );
 };

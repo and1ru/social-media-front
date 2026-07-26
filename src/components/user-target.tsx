@@ -1,16 +1,16 @@
 import { useSendRequest } from "../cutomhooks/useSendRequest";
 
 interface Props {
-    name: string;
-    id: string;
+  name: string;
+  id: string;
 }
 
 export const UserTarget = ({ name, id }: Props) => {
-    const { loading, error, sendRequest } = useSendRequest();
+  const { loading, error, sendRequest } = useSendRequest();
 
-    return (
-        <article
-            className="
+  return (
+    <article
+      className="
                 flex
                 items-center
                 justify-between
@@ -23,11 +23,10 @@ export const UserTarget = ({ name, id }: Props) => {
                 transition
                 hover:shadow-md
             "
-        >
-            <div className="flex items-center gap-4">
-
-                <div
-                    className="
+    >
+      <div className="flex items-center gap-4">
+        <div
+          className="
                         flex
                         h-12
                         w-12
@@ -38,26 +37,21 @@ export const UserTarget = ({ name, id }: Props) => {
                         font-semibold
                         text-white
                     "
-                >
-                    {name[0].toUpperCase()}
-                </div>
+        >
+          {name[0].toUpperCase()}
+        </div>
 
-                <div>
-                    <h2 className="font-semibold text-gray-900">
-                        {name}
-                    </h2>
+        <div>
+          <h2 className="font-semibold text-gray-900">{name}</h2>
 
-                    <p className="text-sm text-gray-500">
-                        Usuario
-                    </p>
-                </div>
+          <p className="text-sm text-gray-500">Usuario</p>
+        </div>
+      </div>
 
-            </div>
-
-            <button
-                onClick={() => sendRequest(id)}
-                disabled={loading}
-                className="
+      <button
+        onClick={() => sendRequest(id)}
+        disabled={loading}
+        className="
                     rounded-xl
                     bg-gray-900
                     px-5
@@ -69,15 +63,11 @@ export const UserTarget = ({ name, id }: Props) => {
                     disabled:cursor-not-allowed
                     disabled:opacity-50
                 "
-            >
-                {loading ? "Enviando..." : "Agregar"}
-            </button>
+      >
+        {loading ? "Enviando..." : "Agregar"}
+      </button>
 
-            {error && (
-                <p className="text-sm text-red-500">
-                    Error
-                </p>
-            )}
-        </article>
-    );
+      {error && <p className="text-sm text-red-500">Error</p>}
+    </article>
+  );
 };

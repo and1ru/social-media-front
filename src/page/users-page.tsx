@@ -9,44 +9,33 @@ export const UsersPage = () => {
 
     const name = search.get("name");
 
-    if (!name) {
-        return null;
-    }
+    if (!name) return;
 
     const { data, error, loading } = useFindUsers<userType>(name);
 
     return (
         <>
             <HeaderComponent />
-
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
-
                 <section className="mx-auto max-w-3xl">
-
                     <header className="mb-8">
-
                         <h1 className="text-3xl font-bold text-gray-900">
                             Buscar usuarios
                         </h1>
-
                         <p className="mt-2 text-gray-500">
                             Resultados para <span className="font-semibold">"{name}"</span>
                         </p>
-
                     </header>
-
                     {loading && (
                         <div className="rounded-xl bg-blue-50 p-4 text-center text-blue-700">
                             Buscando usuarios...
                         </div>
                     )}
-
                     {error && (
                         <div className="rounded-xl bg-red-50 p-4 text-center text-red-700">
                             Ocurrió un error al realizar la búsqueda.
                         </div>
                     )}
-
                     {!loading && !error && (
                         <section className="flex flex-col gap-5">
 
@@ -66,9 +55,7 @@ export const UsersPage = () => {
 
                         </section>
                     )}
-
                 </section>
-
             </main>
         </>
     );

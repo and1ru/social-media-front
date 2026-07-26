@@ -10,36 +10,30 @@ export const FriendsPage = () => {
     return (
         <>
             <HeaderComponent />
-
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
                 <section className="mx-auto max-w-3xl">
-
                     <header className="mb-8">
                         <h1 className="text-3xl font-bold text-gray-900">
                             Friends
                         </h1>
-
                         <p className="mt-2 text-gray-500">
                             Administra tus solicitudes y encuentra nuevos amigos.
                         </p>
                     </header>
-
                     {loading && (
                         <div className="mb-6 rounded-xl bg-blue-50 p-4 text-center text-blue-700">
                             Cargando solicitudes...
                         </div>
                     )}
-
                     {error && (
                         <div className="mb-6 rounded-xl bg-red-50 p-4 text-center text-red-700">
                             Ocurrió un error al obtener las solicitudes.
                         </div>
                     )}
-
+                    
                     <div className="mb-8">
                         <FindUser />
                     </div>
-
                     <section className="flex flex-col gap-5">
                         {data.length > 0 ? (
                             data.map((request) => (
@@ -56,7 +50,6 @@ export const FriendsPage = () => {
                             )
                         )}
                     </section>
-
                 </section>
             </main>
         </>
