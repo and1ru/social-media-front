@@ -55,41 +55,15 @@ return (
                 onSubmit={handleSubmit(handleForm)}
                 className="mt-8 flex flex-col gap-5"
             >
-                <InputComponent
-                    control={control}
-                    name="email"
-                    label="Email"
-                    type="email"
-                    error={errors.email}
-                />
+                <InputComponent control={control} name="email" label="Email" type="email" error={errors.email}/>
+                <InputComponent control={control} name="password" label="Password" type="password" error={errors.password}/>
 
-                <InputComponent
-                    control={control}
-                    name="password"
-                    label="Password"
-                    type="password"
-                    error={errors.password}
-                />
-
-                <button
-                    className="
-                    w-full
-                    rounded-xl
-                    bg-gray-900
-                    py-3
-                    text-white
-                    font-medium
-                    transition
-                    hover:bg-gray-700
-                    active:scale-95
-                    disabled:opacity-50
-                    "
-                >
+                <button className="w-full rounded-xl bg-gray-900 py-3 text-white font-medium transition hover:bg-gray-700 active:scale-95 disabled:opacity-50">
                     Login
                 </button>
             </form>
             <p className="mt-8 text-center text-sm text-gray-600">
-                Don't have an account?{" "}
+                Don't have an account? 
                 <span
                     onClick={onClickNavigate}
                     className="cursor-pointer font-semibold text-gray-900 hover:underline"
