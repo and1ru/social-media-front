@@ -1,13 +1,15 @@
 import { CommentsComponent } from "./commentsComponent";
+import { CopyComponent } from "./copy-component";
+import { LikeComponent } from "./like-component";
 
 interface Props {
+    id:string
     contenido: string;
     fecha: string;
-    likes: number;
     comentarios?: string[];
 }
 
-export const PostTargetComponent = ({ contenido, fecha, likes, comentarios }: Props) => {
+export const PostTargetComponent = ({ contenido, fecha, id }: Props) => {
     return (
         <article className="rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
             <header className="flex items-center gap-4 border-b border-gray-100 p-5">
@@ -29,13 +31,9 @@ export const PostTargetComponent = ({ contenido, fecha, likes, comentarios }: Pr
                 </p>
             </section>
             <footer className="flex items-center justify-around border-t border-gray-100 p-3">
-                <button className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
-                    ❤️ {likes}
-                </button>
-                <CommentsComponent comentarios={comentarios} />
-                <button className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
-                    📤 Copy
-                </button>
+                <LikeComponent id={id}/>
+                <CommentsComponent postId={id} />
+                <CopyComponent id={id}/>
             </footer>
         </article>
     );

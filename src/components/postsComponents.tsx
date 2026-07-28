@@ -9,10 +9,10 @@ export const PostsComponents = () => {
             {data?.length ? (
                 data.map((post) => (
                     <PostTargetComponent
+                        id={post._id}
                         key={post._id}
                         contenido={post.content}
                         fecha={post.fecha}
-                        likes={post.likes}
                     />
                 ))
             ) : (

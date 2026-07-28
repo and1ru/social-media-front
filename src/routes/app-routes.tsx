@@ -7,11 +7,14 @@ import { SocialPage } from "../page/social-page";
 import { FriendsPage } from "../page/friends-page";
 import { ChatPage } from "../page/chat-page";
 import { UsersPage } from "../page/users-page";
+import { HomePage } from "../page/home-page";
+import { UserPage } from "../page/user-page";
+import { PostPage } from "../page/post-page";
 
 export const routes = createBrowserRouter([
     {
         path: "",
-        element: <h1>hola</h1>
+        element: <HomePage/>
     },
     {
         path: "register",
@@ -44,6 +47,14 @@ export const routes = createBrowserRouter([
             {
                 path: "users",
                 element: <UsersPage/>
+            },
+            {
+                path: "users/:id",
+                element: <UserPage/>
+            },
+            {
+                path: "post/:id",
+                element: <PostPage/>
             }
         ]
     }
