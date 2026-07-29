@@ -1,4 +1,36 @@
+import { useEffect, useState } from "react";
+import { socket } from "../cutomhooks/api.socket";
+import { useParams } from "react-router-dom";
+import { useStatus } from "../cutomhooks/useStatus";
+
 export const HeaderChatComponent = () => {
+    const { id } = useParams()
+    if(!id) return
+    const { data } = useStatus(id)
+
+    const [status, setStatus] = useState(false)
+
+    useEffect(()=> {
+        if(data){
+            setStatus(data.result)
+        }
+    },[data])
+
+    useEffect(() => {
+        socket.on("user_status", (data) => {
+            if(id === data.userId){
+                setStatus(data.connected)
+            }
+
+            console.log(data)
+        })
+
+        return () => {
+            socket.off("user_status")
+        }
+    }, [])
+
+
     return (
         <section className="flex items-center gap-4">
             <div
@@ -9,9 +41,8 @@ export const HeaderChatComponent = () => {
                 <h1 className="font-semibold text-gray-900">
                     Juan
                 </h1>
-                <p className="text-sm text-gray-500">
-                    escribiendo...
-                </p>
+                
+                {status ? <p className="text-green-500 font-bold">connected</p> : <p className="text-red-500 font-bold">disconnected</p>}
             </div>
         </section>
     );
