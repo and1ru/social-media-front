@@ -5,8 +5,7 @@ export const postsSchema = z.object({
     content: z.string(),
     userId: z.string(),
     fecha: z.string(),
-    likes: z.number(),
-    comentarios: z.array(z.string())
+    name: z.string()
 })
 
 export type postsType = z.infer<typeof postsSchema>

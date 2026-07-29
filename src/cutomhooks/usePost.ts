@@ -1,30 +1,25 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "./api.client"
 
-interface Comment {
-    _id:string;
-    postId:string;
+interface DataI{
+    _id: string;
+    content: string;
+    fecha:string;
     userId:string;
-    comment:string;
+    name:string;
 }
 
-interface DataT {
-    message: string;
-    commentCount: number;
-    comments: Comment[]
-}
-
-export const useGetComment = (postId:string) => {
-    const [data, setData] = useState<DataT>()
+export const usePost = (postId:string) => {
+    const [data, setData] = useState<DataI>()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
     const getComment = async () => {
         setLoading(true)
         try {
-            const request = await apiClient.get(`comments/${postId}`)
+            const request = await apiClient.get(`post/${postId}`)
             console.log(request.data)
-            setData(request.data)
+            setData(request.data.result)
         } catch (error) {
             console.error(error)
             setError(true)

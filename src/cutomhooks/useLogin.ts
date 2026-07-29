@@ -12,6 +12,9 @@ export const useLoging = <T>() => {
     setLoading(true)
     try {
       const request = await apiClient.post("login", body, {withCredentials:true});
+      console.log(request.data)
+      localStorage.setItem("name", request.data.name)
+      localStorage.setItem("userId", request.data.userId)
       setData(request.data);
       setSuccess(true)
     } catch (error) {

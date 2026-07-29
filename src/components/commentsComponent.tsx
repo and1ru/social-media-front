@@ -45,7 +45,7 @@ export const CommentsComponent = ({ postId }: Props) => {
             <button
                 onClick={openDialog}
                 className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
-                💬 {data?.length}
+                💬 {data?.commentCount}
             </button>
             <dialog
                 ref={dialogRef}
@@ -64,8 +64,8 @@ export const CommentsComponent = ({ postId }: Props) => {
                 <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-72 items-center justify-center rounded-xl border border-dashed border-gray-300">
                     {loading && <p>cargando comentarios</p>}
                     {error && <p>error al intentar cargar los comentarios</p>}
-                    {data.length === 0 ? <p>no comments yet</p> : 
-                        data.map((comentario) => (<div className="w-full border p-3 rounded-lg" key={comentario._id}><p>{comentario.comment}</p></div>))}
+                    {data?.commentCount === 0 ? <p>no comments yet</p> : 
+                        data?.comments.map((comentario) => (<div className="w-full border p-3 rounded-lg" key={comentario._id}><p>{comentario.comment}</p></div>))}
                 </div>
 
                 <form 

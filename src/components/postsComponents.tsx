@@ -9,10 +9,12 @@ export const PostsComponents = () => {
             {data?.length ? (
                 data.map((post) => (
                     <PostTargetComponent
+                        name={post.name}
                         id={post._id}
                         key={post._id}
                         contenido={post.content}
                         fecha={post.fecha}
+                        userId={post.userId}
                     />
                 ))
             ) : (

@@ -13,7 +13,7 @@ export const RootPage = () => {
 
   return (
     <>
-      <Outlet/>
+      <Outlet/>      
     </>
   );
 };

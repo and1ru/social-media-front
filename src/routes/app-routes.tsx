@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
                 element: <UsersPage/>
             },
             {
-                path: "users/:id",
+                path: "user/:id",
                 element: <UserPage/>
             },
             {
