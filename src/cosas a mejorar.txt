@@ -1,0 +1,3 @@
+crear componentes para los errores
+crear un componente para las paginas no encontradas
+crear un componente para Error Boundary
