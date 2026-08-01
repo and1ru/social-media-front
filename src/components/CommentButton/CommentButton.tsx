@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { useGetComment } from "../../cutomhooks/useGetComment";
-import { useComment } from "../../cutomhooks/useComment";
+import { useComment } from "../../cutomhooks/useComment/useComment";
+import { useGetComment } from "../../cutomhooks/useGetComment/useGetComment";
 
 interface Props {
     postId: string;

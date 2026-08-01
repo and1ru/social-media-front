@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useLogOut } from "../../cutomhooks/useLogOut";
+import { useLogOut } from "../../cutomhooks/useLogOut/useLogOut";
 
 export const LogOutButton = () => {
     const { loading, success, logOut } = useLogOut()

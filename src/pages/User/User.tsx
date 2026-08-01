@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { HeaderComponent } from "../components/header-component";
-import { PostTargetComponent } from "../../components/PostCard/PostCard";
-import { usePostUser } from "../cutomhooks/usePostUser";
+import { usePostUser } from "../../cutomhooks/usePostUser/usePostUser";
+import { Header } from "../../components/Header/Header";
+import { PostCard } from "../../components/PostCard/PostCard";
 
 // para obtener el nombre del usuario entonces enviar el userId y el nombre
 
@@ -14,7 +14,7 @@ export const UserPage = () => {
   if(error) return <p>error</p>
   return (
     <>
-      <HeaderComponent />
+      <Header />
       <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
         <section className="mx-auto max-w-3xl mb-8">
           <div className="flex items-center gap-10">
@@ -27,7 +27,7 @@ export const UserPage = () => {
           </div>
         </section >
         <section className="mx-auto max-w-3xl flex flex-col gap-5">
-          { data.map((post) => (<PostTargetComponent key={post._id} contenido={post.content} fecha={post.fecha} id={post._id} name={post.name} userId={post.userId} />))}
+          { data.map((post) => (<PostCard key={post._id} contenido={post.content} fecha={post.fecha} id={post._id} name={post.name} userId={post.userId} />))}
         </section>
       </main>
 

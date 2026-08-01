@@ -1,5 +1,5 @@
-import { ChatTargetComponent } from "../../components/CardChat/CardChat";
-import { HeaderComponent } from "../components/header-component";
+import { CardChat } from "../../components/CardChat/CardChat";
+import { Header } from "../../components/Header/Header";
 import { useChatsFriends } from "../../cutomhooks/useChatsFriends/useChatsFriends";
 
 interface DataType {
@@ -12,7 +12,7 @@ export const ChatsPage = () => {
 
     return (
         <>
-            <HeaderComponent />
+            <Header />
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-10 px-4">
                 <section className="mx-auto max-w-3xl">
                     <h1 className="mb-8 text-center text-3xl font-bold text-gray-900">
@@ -30,7 +30,7 @@ export const ChatsPage = () => {
                     )}
                     <div className="flex flex-col gap-4">
                         {data?.map(chat => (
-                            <ChatTargetComponent
+                            <CardChat
                                 key={chat.id}
                                 id={chat.id}
                                 name={chat.name}

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { HeaderComponent } from "../components/header-component";
-import { PostTargetComponent } from "../../components/PostCard/PostCard";
-import { usePost } from "../cutomhooks/usePost";
+import { usePost } from "../../cutomhooks/usePost/usePost";
+import { Header } from "../../components/Header/Header";
+import { PostCard } from "../../components/PostCard/PostCard";
 
 export const PostPage = () => {
   const { id } = useParams()
@@ -13,9 +13,9 @@ export const PostPage = () => {
 
   return (
     <>
-      <HeaderComponent />
+      <Header />
       <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
-        <PostTargetComponent contenido={data.content} fecha={data.fecha} id={data._id} name={data.name} userId={data.userId} />
+        <PostCard contenido={data.content} fecha={data.fecha} id={data._id} name={data.name} userId={data.userId} />
       </main>
     </>
 

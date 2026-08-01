@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { useGetMessages } from "../../cutomhooks/useGetMessages";
-import { MessageTargetComponent } from "../Message/Message";
 import { useParams } from "react-router-dom";
-import { useNewMessages } from "../../cutomhooks/useNewMessages";
+import { useGetMessages } from "../../cutomhooks/useGetMessages/useGetMessages";
+import { useNewMessages } from "../../cutomhooks/useNewMessages/useNewMessages";
+import { Message } from "../Message/Message";
 
 interface MessageT {
     _id: string;
@@ -30,7 +30,7 @@ export const Messages = () => {
         <section className="h-full overflow-y-auto bg-gray-50 px-4 py-6">
             <div className="mx-auto flex max-w-4xl flex-col gap-3">
                 {data.map((message) => (
-                    <MessageTargetComponent
+                    <Message
                         key={message._id}
                         senderId={message.senderId}
                         message={message.message}
@@ -39,7 +39,7 @@ export const Messages = () => {
                 ))}
 
                 {newMessages.map((message) => (
-                    <MessageTargetComponent
+                    <Message
                         key={message._id}
                         senderId={message.senderId}
                         message={message.message}

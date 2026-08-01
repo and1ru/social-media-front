@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../cutomhooks/useAuth/useAuth";
+import { useAuth } from "../../cutomhooks/useAuth/useAuth";
 
 export const RootPage = () => {
   const { authenticated, loading } = useAuth()

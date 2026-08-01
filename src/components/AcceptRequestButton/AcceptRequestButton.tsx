@@ -1,4 +1,4 @@
-import { useAcceptRequest } from "../../cutomhooks/useAcceptRequst";
+import { useAcceptRequest } from "../../cutomhooks/useAcceptRequst/useAcceptRequst";
 
 interface Props {
   requestId:string;

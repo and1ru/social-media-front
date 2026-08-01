@@ -1,9 +1,9 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { registerSchema, type registerType } from "../../schemas/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { InputComponent } from "../../components/Input/Input";
 import { useNavigate } from "react-router-dom";
-import { useRegister } from "../cutomhooks/useRegister";
+import { useRegister } from "../../cutomhooks/useRegister/useRegister";
+import { Input } from "../../components/Input/Input";
 
 export const RegisterPage = () => {
     const navegar = useNavigate()
@@ -37,10 +37,10 @@ export const RegisterPage = () => {
             <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
                 <h1 className="text-center text-2xl font-bold">REGISTER</h1>
                 <form className="mt-8 flex flex-col gap-5" onSubmit={handleSubmit(handleForm)}>
-                    <InputComponent control={control} name="name" label="name" type="text" error={errors.name} />
-                    <InputComponent control={control} name="email" label="email" type="email" error={errors.email} />
-                    <InputComponent control={control} name="password" label="password" type="password" error={errors.password} />
-                    <InputComponent control={control} name="confirmPassword" label="confirm password" type="password" error={errors.confirmPassword} />
+                    <Input control={control} name="name" label="name" type="text" error={errors.name} />
+                    <Input control={control} name="email" label="email" type="email" error={errors.email} />
+                    <Input control={control} name="password" label="password" type="password" error={errors.password} />
+                    <Input control={control} name="confirmPassword" label="confirm password" type="password" error={errors.confirmPassword} />
                     <button className="bg-gray-800 p-2 rounded-lg text-white">Enviar</button>
                 </form>
                 <p className="mt-8 text-center text-sm text-gray-600">

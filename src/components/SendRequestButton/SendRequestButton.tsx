@@ -1,4 +1,4 @@
-import { useSendRequest } from "../cutomhooks/useSendRequest";
+import { useSendRequest } from "../../cutomhooks/useSendRequest/useSendRequest";
 
 interface Props {
   id:string;

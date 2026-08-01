@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { CommentsComponent } from "../CommentButton/CommentButton";
-import { CopyComponent } from "../CopyButton/CopyButton";
-import { LikeComponent } from "./like-component";
-import { DeletePostComponent } from "../DeletePost/DeletePost";
+import { DeletePost } from "../DeletePost/DeletePost";
+import { CommentButton } from "../CommentButton/CommentButton";
+import { CopyButton } from "../CopyButton/CopyButton";
+import { LikeButton } from "../LikeButton/LikeButton";
 
 interface Props {
     id: string
@@ -39,7 +39,7 @@ export const PostCard = ({ contenido, fecha, id, name, userId }: Props) => {
                             {fecha}
                         </p>
                     </div>
-                    {authId === userId && <DeletePostComponent />}
+                    {authId === userId && <DeletePost />}
                 </header>
                 <section className="p-5">
                     <p className="whitespace-pre-wrap leading-7 text-gray-800">
@@ -47,9 +47,9 @@ export const PostCard = ({ contenido, fecha, id, name, userId }: Props) => {
                     </p>
                 </section>
                 <footer className="flex items-center justify-around border-t border-gray-100 p-3">
-                    <LikeComponent id={id} />
-                    <CommentsComponent postId={id} />
-                    <CopyComponent id={id} />
+                    <LikeButton id={id} />
+                    <CommentButton postId={id} />
+                    <CopyButton id={id} />
                 </footer>
             </article>
         </section>

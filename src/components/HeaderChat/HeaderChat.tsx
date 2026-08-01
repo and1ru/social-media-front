@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { socket } from "../cutomhooks/api.socket";
 import { useParams } from "react-router-dom";
-import { useStatus } from "../cutomhooks/useStatus";
+import { useStatus } from "../../cutomhooks/useStatus/useStatus";
+import { socket } from "../../cutomhooks/api.socket";
 
 export const HeaderChat = () => {
     const { id } = useParams()

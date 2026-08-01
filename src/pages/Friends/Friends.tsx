@@ -1,6 +1,6 @@
-import { FindUser } from "../../components/FindUsersForm/FindUsersForm";
-import { FreindTargetComponent } from "../components/friend-target-component";
-import { HeaderComponent } from "../components/header-component";
+import { FindUserForm } from "../../components/FindUsersForm/FindUsersForm";
+import { FriendCard } from "../../components/FriendCard/FriendCard";
+import { Header } from "../../components/Header/Header";
 import { useGetRequest } from "../../cutomhooks/useGetRequest/useGetRequest";
 import { type requestType } from "../../schemas/request-schema";
 
@@ -9,7 +9,7 @@ export const FriendsPage = () => {
 
     return (
         <>
-            <HeaderComponent />
+            <Header />
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
                 <section className="mx-auto max-w-3xl">
                     <header className="mb-8">
@@ -32,12 +32,12 @@ export const FriendsPage = () => {
                     )}
                     
                     <div className="mb-8">
-                        <FindUser />
+                        <FindUserForm />
                     </div>
                     <section className="flex flex-col gap-5">
                         {data.length > 0 ? (
                             data.map((request) => (
-                                <FreindTargetComponent
+                                <FriendCard
                                     key={request._id}
                                     id={request._id}
                                 />

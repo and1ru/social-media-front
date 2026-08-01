@@ -1,6 +1,6 @@
 import { CreatePost } from "../../components/CreatePost/CreatePost";
-import { HeaderComponent } from "../components/header-component";
-import { PostsComponents } from "../components/postsComponents";
+import { Header } from "../../components/Header/Header";
+import { Posts } from "../../components/Posts/Posts";
 import { useGetPosts } from "../../cutomhooks/useGetPost/useGetPost";
 import { type postsType } from "../../schemas/posts-schema";
 
@@ -9,7 +9,7 @@ export const SocialPage = () => {
 
     return (
         <>
-            <HeaderComponent />
+            <Header />
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
                 <section className="mx-auto max-w-3xl">
                     <header className="mb-8">
@@ -32,7 +32,7 @@ export const SocialPage = () => {
                         </div>
                     )}
                     <CreatePost />
-                    <PostsComponents />
+                    <Posts />
                 </section>
             </main>
         </>

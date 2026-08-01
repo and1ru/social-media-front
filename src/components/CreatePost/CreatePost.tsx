@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { useCreatePost } from "../../cutomhooks/useCreatePost";
+import { useCreatePost } from "../../cutomhooks/useCreatePost/useCreatePost";
 
 export const CreatePost = () => {
     const [value, setValue] = useState("");

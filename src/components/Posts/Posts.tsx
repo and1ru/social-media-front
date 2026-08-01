@@ -1,6 +1,7 @@
-import { useGetPosts } from "../cutomhooks/useGetPost";
-import type { postsType } from "../schemas/posts-schema";
-import { PostTargetComponent } from "./post-target-component/post-target-component";
+import { useGetPosts } from "../../cutomhooks/useGetPost/useGetPost";
+import type { postsType } from "../../schemas/posts-schema";
+import { PostCard } from "../PostCard/PostCard";
+
 
 export const Posts = () => {
     const { data, loading } = useGetPosts<postsType>()
@@ -8,7 +9,7 @@ export const Posts = () => {
         <section className="flex flex-col gap-6 mt-8">
             {data?.length ? (
                 data.map((post) => (
-                    <PostTargetComponent
+                    <PostCard
                         name={post.name}
                         id={post._id}
                         key={post._id}

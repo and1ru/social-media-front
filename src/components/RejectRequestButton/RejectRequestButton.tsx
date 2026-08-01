@@ -1,4 +1,4 @@
-import { useRejectRequest } from "../cutomhooks/useRejectRequest";
+import { useRejectRequest } from "../../cutomhooks/useRejectRequest/useRejectRequest";
 
 interface Props {
   id:string;

@@ -1,9 +1,9 @@
 import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { InputComponent } from "../../components/Input/Input";
 import { loginSchema, type loginType } from "../../schemas/login-schema";
 import { useNavigate } from "react-router-dom";
-import { useLoging } from "../cutomhooks/useLogin";
+import { useLoging } from "../../cutomhooks/useLogin/useLogin";
+import { Input } from "../../components/Input/Input";
 
 export const LoginPage = () => {
     const { error, loading, success, login } = useLoging()
@@ -55,8 +55,8 @@ return (
                 onSubmit={handleSubmit(handleForm)}
                 className="mt-8 flex flex-col gap-5"
             >
-                <InputComponent control={control} name="email" label="Email" type="email" error={errors.email}/>
-                <InputComponent control={control} name="password" label="Password" type="password" error={errors.password}/>
+                <Input control={control} name="email" label="Email" type="email" error={errors.email}/>
+                <Input control={control} name="password" label="Password" type="password" error={errors.password}/>
 
                 <button className="w-full rounded-xl bg-gray-900 py-3 text-white font-medium transition hover:bg-gray-700 active:scale-95 disabled:opacity-50">
                     Login

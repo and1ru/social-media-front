@@ -1,16 +1,16 @@
-import { HeaderComponent } from "../components/header-component";
-import { HeaderChatComponent } from "../components/headerChatComponent";
-import { MessageComponent } from "../../components/Messages/Messages";
-import { SendMessageComponent } from "../components/sendMessageComponent";
+import { Header } from "../../components/Header/Header";
+import { HeaderChat } from "../../components/HeaderChat/HeaderChat";
+import { Messages } from "../../components/Messages/Messages";
+import { SendMessage } from "../../components/SendMessage/SendMessage.test";
 
 export const Chat = () => {
   return (
 <>
-    <HeaderComponent />
+    <Header />
     <main className="flex h-[calc(100vh-64px)] flex-col bg-gray-50">
-        <HeaderChatComponent/>
-        <MessageComponent />
-        <SendMessageComponent/>
+        <HeaderChat/>
+        <Messages />
+        <SendMessage/>
     </main>
 </>
   );

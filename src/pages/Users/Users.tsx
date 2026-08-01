@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom";
-import { HeaderComponent } from "../components/header-component";
-import { UserTarget } from "../components/user-target";
 import { useFindUsers } from "../../cutomhooks/useFindUsers/useFindUsers";
 import type { userType } from "../../schemas/user-schema";
+import { Header } from "../../components/Header/Header";
+import { UserCard } from "../../components/UserCard/UserCard";
 
 export const UsersPage = () => {
     const [search] = useSearchParams();
@@ -15,7 +15,7 @@ export const UsersPage = () => {
 
     return (
         <>
-            <HeaderComponent />
+            <Header />
             <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
                 <section className="mx-auto max-w-3xl">
                     <header className="mb-8">
@@ -41,7 +41,7 @@ export const UsersPage = () => {
 
                             {data.length > 0 ? (
                                 data.map((user) => (
-                                    <UserTarget
+                                    <UserCard
                                         key={user._id}
                                         id={user._id}
                                         name={user.name}

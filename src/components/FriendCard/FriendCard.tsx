@@ -1,5 +1,5 @@
-import { AcceptRequest } from "./accept-request/accept-request";
-import { RejectRequest } from "./reject-request";
+import { AcceptRequestButton } from "../AcceptRequestButton/AcceptRequestButton"
+import { RejectRequestButton } from "../RejectRequestButton/RejectRequestButton";
 
 interface Props {
   id:string;
@@ -10,8 +10,8 @@ export const FriendCard = ({id}:Props) => {
     <div className="border rounded-lg p-3 flex justify-between">
         <p>nombre</p>
         <div className="self-end">
-          <AcceptRequest requestId={id}/>
-          <RejectRequest id={id} />
+          <AcceptRequestButton requestId={id}/>
+          <RejectRequestButton id={id} />
         </div>
     </div>
   );

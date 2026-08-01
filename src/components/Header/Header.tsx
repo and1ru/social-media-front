@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ButtonLogOut } from "./button-logOut/button-logOut";
+import { LogOutButton } from "../LogOutButton/LogOutButton";
 
 export const Header = () => {
   return (
@@ -17,7 +17,7 @@ export const Header = () => {
                     <Link to={"/private/friends"}>Friends</Link>    
                 </li>
                 <li className="px-3 py-2">
-                    <ButtonLogOut/>
+                    <LogOutButton/>
                 </li>
             </ul>
         </nav>
