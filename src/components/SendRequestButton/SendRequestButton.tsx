@@ -1,0 +1,19 @@
+import { useSendRequest } from "../cutomhooks/useSendRequest";
+
+interface Props {
+  id:string;
+}
+
+export const SendRequestButton = ({id}:Props) => {
+    const {error, loading, sendRequest} = useSendRequest()
+
+    const handleClick = () => {
+      sendRequest(id)
+    }
+
+    if(error) <p>error</p>
+    if(loading) <p>loading</p>
+  return (
+    <button onClick={handleClick} className="p-2 rounded-lg bg-blue-500">send request</button>
+  );
+};

@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import { RegisterPage } from "../page/register-page/register-page";
-import { LoginPage } from "../page/login-page/login-page";
-import { RootPage } from "../page/root-page";
-import { ChatsPage } from "../page/chats-page/chats-page";
-import { SocialPage } from "../page/social-page/social-page";
-import { FriendsPage } from "../page/friends-page/friends-page";
-import { ChatPage } from "../page/chat-page/chat-page";
-import { UsersPage } from "../page/users-page/users-page";
-import { HomePage } from "../page/home-page/home-page";
-import { UserPage } from "../page/user-page/user-page";
-import { PostPage } from "../page/post-page/post-page";
+import { RegisterPage } from "../pages/Register/Register";
+import { LoginPage } from "../pages/Login/Login";
+import { RootPage } from "../pages/Root";
+import { ChatsPage } from "../pages/Chats/Chats";
+import { SocialPage } from "../pages/Social/Social";
+import { FriendsPage } from "../pages/Friends/Friends";
+import { ChatPage } from "../pages/Chat/Chat";
+import { UsersPage } from "../pages/Users/Users";
+import { HomePage } from "../pages/Home/Home";
+import { UserPage } from "../pages/User/User";
+import { PostPage } from "../pages/Post/Post";
 
 export const routes = createBrowserRouter([
     {
