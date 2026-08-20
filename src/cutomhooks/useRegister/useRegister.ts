@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { apiClient } from "./api.client";
 import axios from "axios";
+import { apiClient } from "../api.client";
 
 export const useRegister = <T>() => {
   const [data, setData] = useState<null | T>(null);

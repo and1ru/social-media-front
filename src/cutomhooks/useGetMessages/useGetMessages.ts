@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { apiClient } from "./api.client"
 import { isAxiosError } from "axios"
+import { apiClient } from "../api.client"
 
 export const useGetMessages = <T>(friendId:string) => {
     const [data, setData] = useState<T[]>([])

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { socket } from "./api.socket";
+import { socket } from "../api.socket";
 
 export const useNewMessages = <T>(id:string) => {
         const [newMessages, setNewMessages] = useState<T[]>([]);

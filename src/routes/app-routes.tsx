@@ -1,15 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
 import { RegisterPage } from "../pages/Register/Register";
 import { LoginPage } from "../pages/Login/Login";
-import { RootPage } from "../pages/Root";
 import { ChatsPage } from "../pages/Chats/Chats";
 import { SocialPage } from "../pages/Social/Social";
 import { FriendsPage } from "../pages/Friends/Friends";
-import { ChatPage } from "../pages/Chat/Chat";
 import { UsersPage } from "../pages/Users/Users";
 import { HomePage } from "../pages/Home/Home";
 import { UserPage } from "../pages/User/User";
 import { PostPage } from "../pages/Post/Post";
+import { RootPage } from "../pages/Root/Root";
 
 export const routes = createBrowserRouter([
     {
@@ -42,7 +41,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: "chat/:id",
-                element: <ChatPage/>
+                element: <ChatsPage/>
             },
             {
                 path: "users",

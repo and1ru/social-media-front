@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios"
 import { useState } from "react"
-import { apiClient } from "./api.client"
+import { apiClient } from "../api.client"
 
 export const useCreatePost = () => {
     const [loading, setLoading] = useState(false)
