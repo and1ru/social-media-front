@@ -6,6 +6,7 @@ interface Comment {
     postId:string;
     userId:string;
     comment:string;
+    userName:string
 }
 
 interface DataT {

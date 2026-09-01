@@ -30,16 +30,18 @@ export const HeaderChat = () => {
         }
     }, [])
 
+    const name = localStorage.getItem("chat-name")
+    if(!name) return
 
     return (
-        <section className="flex items-center gap-4">
+        <section className="flex items-center gap-4 p-4">
             <div
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-lg font-semibold text-white">
-                J
+                {name[0].toUpperCase()}
             </div>
             <div>
                 <h1 className="font-semibold text-gray-900">
-                    Juan
+                    {name}
                 </h1>
                 
                 {status ? <p className="text-green-500 font-bold">connected</p> : <p className="text-red-500 font-bold">disconnected</p>}

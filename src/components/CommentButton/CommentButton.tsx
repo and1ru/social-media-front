@@ -61,11 +61,20 @@ export const CommentButton = ({ postId }: Props) => {
                     </button>
                 </div>
 
-                <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-72 items-center justify-center rounded-xl border border-dashed border-gray-300">
+                <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-80 items-center justify-center rounded-xl border border-dashed border-gray-300">
                     {loading && <p>cargando comentarios</p>}
                     {error && <p>error al intentar cargar los comentarios</p>}
                     {data?.commentCount === 0 ? <p>no comments yet</p> : 
-                        data?.comments.map((comentario) => (<div className="w-full border p-3 rounded-lg" key={comentario._id}><p>{comentario.comment}</p></div>))}
+                        data?.comments.map((comentario) => (<div className="w-full border p-3 rounded-lg flex gap-3" key={comentario._id}>
+                            <div className="">
+                                <p className="p-2 rounded-2xl w-10 text-center bg-gray-700 text-white">{comentario.userName[0].toUpperCase()}</p>
+                            </div>
+                            <div className="flex flex-col gap-4">
+                                <p>{comentario.userName}</p>
+                                <p>{comentario.comment}</p>
+                            </div>
+
+                        </div>))}
                 </div>
 
                 <form 

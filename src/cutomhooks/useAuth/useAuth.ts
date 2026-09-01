@@ -2,7 +2,19 @@ import { useEffect, useState } from "react"
 import { apiClient } from "../api.client"
 import axios from "axios"
 
+interface Result {
+    name:string;
+    userId:string;
+}
+
+interface Response {
+    message:string;
+    success:boolean
+    result:Result
+}
+
 export const useAuth = () => {
+    const [data, setData] = useState<Response>({message:"", result:{name:"", userId:""}, success:false})
     const [loading, setLoading] = useState(true);
     const [authenticated, setAuthenticated] = useState(false);
 
@@ -10,6 +22,7 @@ export const useAuth = () => {
         try {
             const request = await apiClient.get("auth/me", { withCredentials: true })
             setAuthenticated(request.data.success)
+            setData(request.data)
         } catch (error) {
             if (axios.isAxiosError(error)) {
                 console.log(error.response?.status);
@@ -26,5 +39,5 @@ export const useAuth = () => {
         auth()
     }, [])
 
-    return { loading, authenticated }
+    return { loading, authenticated, data }
 }

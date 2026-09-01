@@ -9,52 +9,58 @@ import { HomePage } from "../pages/Home/Home";
 import { UserPage } from "../pages/User/User";
 import { PostPage } from "../pages/Post/Post";
 import { RootPage } from "../pages/Root/Root";
+import { NotFound } from "../pages/NotFound/NotFound";
+import { Chat } from "../pages/Chat/Chat";
 
 export const routes = createBrowserRouter([
     {
         path: "",
-        element: <HomePage/>
+        element: <HomePage />
     },
     {
         path: "register",
-        element: <RegisterPage/>
+        element: <RegisterPage />
     },
     {
         path: "login",
-        element: <LoginPage/>
+        element: <LoginPage />
     },
     {
         path: "/private/",
-        element: <RootPage/>,
+        element: <RootPage />,
         children: [
             {
-               path: "chats",
-               element: <ChatsPage/> 
+                path: "chats",
+                element: <ChatsPage />
             },
             {
                 path: "social",
-                element: <SocialPage/>
+                element: <SocialPage />
             },
             {
                 path: "friends",
-                element: <FriendsPage/>
+                element: <FriendsPage />
             },
             {
                 path: "chat/:id",
-                element: <ChatsPage/>
+                element: <Chat />
             },
             {
                 path: "users",
-                element: <UsersPage/>
+                element: <UsersPage />
             },
             {
                 path: "user/:id",
-                element: <UserPage/>
+                element: <UserPage />
             },
             {
                 path: "post/:id",
-                element: <PostPage/>
+                element: <PostPage />
             }
-        ]
+        ],
+    },
+    {
+        path: "*",
+        element: <NotFound />
     }
 ])

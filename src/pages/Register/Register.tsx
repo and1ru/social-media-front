@@ -31,7 +31,7 @@ export const RegisterPage = () => {
     }
     
     return (
-        <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+        <main className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-7">
             { error && <p>error</p>}
             { loading && <p>loading</p>}
             <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
@@ -44,7 +44,7 @@ export const RegisterPage = () => {
                     <button className="bg-gray-800 p-2 rounded-lg text-white">Enviar</button>
                 </form>
                 <p className="mt-8 text-center text-sm text-gray-600">
-                    do you have account?
+                    do you have account? 
                     <span 
                     onClick={() => onClickNavigate("/login")}
                     className="cursor-pointer font-semibold text-gray-900 hover:underline"> login</span>

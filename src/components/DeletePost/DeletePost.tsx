@@ -1,8 +1,13 @@
 import { useRef } from "react";
+import { useDeletePost } from "../../cutomhooks/useDeletePost/useDeletePost";
 
-export const DeletePost = () => {
+interface Props {
+    postId:string
+}
+
+export const DeletePost = ({postId}:Props) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null);
-
+    const { deletePost } = useDeletePost()
     const openDialog = () => {
         dialogRef.current?.showModal();
     };
@@ -13,8 +18,12 @@ export const DeletePost = () => {
 
     const handleDelete = () => {
         // Aquí irá la petición para eliminar el post
+        deletePost(postId)
+        location.reload()
         closeDialog();
     };
+
+
 
     return (
         <>

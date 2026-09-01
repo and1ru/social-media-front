@@ -3,6 +3,7 @@ import { DeletePost } from "../DeletePost/DeletePost";
 import { CommentButton } from "../CommentButton/CommentButton";
 import { CopyButton } from "../CopyButton/CopyButton";
 import { LikeButton } from "../LikeButton/LikeButton";
+import { useAuthContext } from "../../context/auth/AuthContext";
 
 interface Props {
     id: string
@@ -13,17 +14,14 @@ interface Props {
 }
 
 export const PostCard = ({ contenido, fecha, id, name, userId }: Props) => {
-
+    const { auth } = useAuthContext()
     const navigate = useNavigate()
 
     const handleCick = () => {
         navigate(`/private/user/${userId}`, { replace: true })
     }
 
-    const authId = localStorage.getItem("userId")
-
     return (
-        <section className="mx-auto max-w-3xl">
             <article className="rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
                 <header className="flex items-center gap-4 border-b border-gray-100 p-5">
                     <div
@@ -39,7 +37,7 @@ export const PostCard = ({ contenido, fecha, id, name, userId }: Props) => {
                             {fecha}
                         </p>
                     </div>
-                    {authId === userId && <DeletePost />}
+                    {auth.id === userId && <DeletePost postId={id} />}
                 </header>
                 <section className="p-5">
                     <p className="whitespace-pre-wrap leading-7 text-gray-800">
@@ -52,6 +50,5 @@ export const PostCard = ({ contenido, fecha, id, name, userId }: Props) => {
                     <CopyButton id={id} />
                 </footer>
             </article>
-        </section>
     );
 };

@@ -1,8 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCreatePost } from "../../cutomhooks/useCreatePost/useCreatePost";
+import { SuccessMessage } from "../SuccesMessage/SuccesMessage";
 
 export const CreatePost = () => {
     const [value, setValue] = useState("");
+    const [created, setCreated] = useState(false)
+
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
     const { createPost, error, loading, success } = useCreatePost();
@@ -26,7 +29,25 @@ export const CreatePost = () => {
         }
     };
 
+    useEffect(()=> {
+        const timer = setTimeout(() => {
+            setCreated(false)
+        },3000)
+        if(success){
+            setCreated(true)
+        }
+
+        return () => {timer}
+    },[success])
+
     return (
+        <>
+        { created &&         
+        <SuccessMessage>
+            <p>se creo el post correctamente</p>
+        </SuccessMessage>
+        }
+
         <section>
             <button
                 onClick={handleOpen}
@@ -68,21 +89,10 @@ export const CreatePost = () => {
                             </button>
                         </div>
                     </div>
-
-                    {error && (
-                        <p className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
-                            Error al crear la publicación.
-                        </p>
-                    )}
-
-                    {success && (
-                        <p className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
-                            Publicación creada correctamente.
-                        </p>
-                    )}
-
                 </form>
             </dialog>
         </section>
+        </>
+        
     );
 };

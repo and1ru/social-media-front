@@ -37,7 +37,6 @@ export const ChatsPage = () => {
                             />
                         ))}
                     </div>
-
                 </section>
             </main>
         </>

@@ -4,6 +4,7 @@ import { loginSchema, type loginType } from "../../schemas/login-schema";
 import { useNavigate } from "react-router-dom";
 import { useLoging } from "../../cutomhooks/useLogin/useLogin";
 import { Input } from "../../components/Input/Input";
+import { useEffect } from "react";
 
 export const LoginPage = () => {
     const { error, loading, success, login } = useLoging()
@@ -20,14 +21,17 @@ export const LoginPage = () => {
 
     const handleForm: SubmitHandler<loginType> = (data) => {
         login(data)
-        if(success){
-            navegar("/private/chats", {replace:true})
-        }
     }
 
     function onClickNavigate() {
         navegar("/register", { replace: true })
     }
+
+    useEffect(()=> {
+        if(success){
+            navegar("/private/chats", {replace:true})
+        }
+    },[success])
 
 return (
     <main className="min-h-screen flex items-center justify-center bg-gray-100 px-4">

@@ -8,9 +8,14 @@ interface Props {
 export const CardChat = ({ name, id }: Props) => {
     const navigate = useNavigate();
 
+    function handleClick(){
+        navigate(`/private/chat/${id}`, { replace: true })
+        localStorage.setItem("chat-name", name)
+    }
+
     return (
         <article
-            onClick={() => navigate(`/private/chat/${id}`, { replace: true })}
+            onClick={handleClick}
             className="flex items-center justify-between rounded-xl border  border-gray-200 bg-white p-5 shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:border-gray-300 hover:shadow-md">
             <div className="flex items-center gap-4">
                 <div

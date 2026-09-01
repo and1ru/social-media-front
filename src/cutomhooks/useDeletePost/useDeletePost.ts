@@ -2,16 +2,16 @@ import { isAxiosError } from "axios"
 import { useState } from "react"
 import { apiClient } from "../api.client"
 
-export const useCreatePost = () => {
+export const useDeletePost = () => {
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
-    const createPost = async (content:string) => {
+    const deletePost = async (postId:string) => {
         setLoading(true)
         setSuccess(false)
         try {
-            await apiClient.post("create-post", { content }, {withCredentials:true})
+            await apiClient.delete(`post/${postId}`)
             setSuccess(true)
         } catch (error) {
             if(isAxiosError(error)){
@@ -24,5 +24,5 @@ export const useCreatePost = () => {
         }
     }
 
-    return {loading, success, error, createPost}
+    return {loading, success, error, deletePost}
 }
