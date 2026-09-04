@@ -26,7 +26,7 @@ export const CopyButton = ({ id }: Props) => {
         { isCopied && <article className="fixed top-5 mx-auto bg-green-500 px-5 py-3 rounded-lg">se copio el post con exito</article>}
             <button 
                 onClick={handleClick}
-                className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
+                className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100 dark:hover:bg-gray-600">
                 📤 { languaje === "en" ? en.buttonCopy : es.buttonCopy}
             </button>
         </>

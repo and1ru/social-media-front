@@ -54,7 +54,7 @@ export const CreatePost = () => {
         <section>
             <button
                 onClick={handleOpen}
-                className="rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-700 active:scale-95">
+                className="rounded-xl bg-gray-800 px-6 py-3 font-medium text-white transition hover:bg-gray-700 active:scale-95 dark:hover:bg-gray-900">
                 { languaje === "en" ? en.buttonCreatePost : es.buttonCreatePost}
 
             </button>
@@ -77,7 +77,7 @@ export const CreatePost = () => {
                         value={value}
                         onChange={(e) => setValue(e.target.value)}
                         placeholder={languaje === "en" ? en.inputPost : es.inputPost}
-                        className="h-56 resize-none rounded-xl border border-gray-300 p-4 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 dark:bg-gray-600 dark:placeholder:text-white"
+                        className="h-56 resize-none rounded-xl border border-gray-300 p-4 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 dark:bg-gray-600 dark:placeholder:text-white dark:text-white"
                     />
                     <div className="flex items-center justify-between">
                         <div className="flex gap-3">

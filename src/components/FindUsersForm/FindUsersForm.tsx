@@ -17,6 +17,7 @@ export const FindUserForm = () => {
     };
 
     return (
+        <section>
         <form
             onSubmit={handleSubmit}
             className="flex items-center rounded-2xl border border-gray-200 bg-white p-3 shadow-sm gap-1">
@@ -33,5 +34,7 @@ export const FindUserForm = () => {
                 { languaje === "en" ? en.buttonFriends : es.buttonFriends}
             </button>
         </form>
+        </section>
+
     );
 };

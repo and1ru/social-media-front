@@ -20,13 +20,13 @@ export const Header = () => {
                     <ul className="flex justify-around items-center">
                         <li className="py-4 px-5 rounded-lg">Chat App</li>
                         <li>
-                            <Link to={"/private/chats"} className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg hidden md:block">chat</Link>
+                            <Link to={"/private/chats"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">chat</Link>
                         </li>
                         <li>
-                            <Link to={"/private/social"} className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg hidden md:block">Social</Link>
+                            <Link to={"/private/social"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">Social</Link>
                         </li>
                         <li>
-                            <Link to={"/private/friends"} className="hover:bg-gray-200 hover:border-b-2 py-4 px-5 rounded-lg hidden md:block">{ languaje === "en" ? en.headerFriends : es.headerFriends}</Link>
+                            <Link to={"/private/friends"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">{ languaje === "en" ? en.headerFriends : es.headerFriends}</Link>
                         </li>
                         <li className="hidden md:block">
                             <Theme />

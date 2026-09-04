@@ -48,28 +48,30 @@ export const CommentButton = ({ postId }: Props) => {
         <>
             <button
                 onClick={openDialog}
-                className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
+                className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100 dark:hover:bg-gray-600">
                 💬 {data?.commentCount}
             </button>
+
             <dialog
                 ref={dialogRef}
-                className="w-[95%] max-w-xl rounded-2xl bg-white p-6 shadow-2xl backdrop:bg-black/60 m-auto">
+                className="w-[95%] max-w-xl rounded-2xl bg-white p-6 shadow-2xl backdrop:bg-black/60 m-auto dark:bg-gray-800">
                 <div className="flex items-center justify-between">
-                    <h2 className="text-xl font-semibold">
+                    <h2 className="text-xl dark:text-white">
                         { languaje === "en" ? en.comments : es.comments}
                     </h2>
                     <button
                         onClick={closeDialog}
-                        className="rounded-lg px-3 py-2 transition hover:bg-gray-100">
+                        className="rounded-lg px-3 py-2 transition hover:bg-gray-100 dark:text-white dark:hover:bg-gray-900">
                         ✕
                     </button>
                 </div>
 
-                <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-80 items-center justify-center rounded-xl border border-dashed border-gray-300">
+                <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-80 items-center justify-center rounded-xl border border-dashed border-gray-300 dark:bg-gray-600">
                     {loading && <p>cargando comentarios</p>}
                     {error && <p>error al intentar cargar los comentarios</p>}
                     {data?.commentCount === 0 ? <p>no comments yet</p> : 
-                        data?.comments.map((comentario) => (<div className="w-full border p-3 rounded-lg flex gap-3" key={comentario._id}>
+                        data?.comments.map((comentario) => (
+                        <div className="w-full border p-3 rounded-lg flex gap-3 dark:bg-gray-500 dark:text-white" key={comentario._id}>
                             <div className="">
                                 <p className="p-2 rounded-2xl w-10 text-center bg-gray-700 text-white">{comentario.userName[0].toUpperCase()}</p>
                             </div>
@@ -78,7 +80,8 @@ export const CommentButton = ({ postId }: Props) => {
                                 <p>{comentario.comment}</p>
                             </div>
 
-                        </div>))}
+                        </div>
+                    ))}
                 </div>
 
                 <form 
@@ -88,7 +91,7 @@ export const CommentButton = ({ postId }: Props) => {
                         value={value}
                         onChange={handleInput}
                         placeholder={ languaje === "en" ? en.inputComment : es.inputComment}
-                        className="flex-1 rounded-xl border  border-gray-300 px-4 py-3 outline-none  focus:border-gray-900" />
+                        className="flex-1 rounded-xl border  border-gray-300 px-4 py-3 outline-none  focus:border-gray-900 dark:text-white dark:border-white dark:focus:border-white" />
                     <button
                         disabled={loading}
                         type="submit"

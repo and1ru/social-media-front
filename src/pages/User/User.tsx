@@ -15,13 +15,13 @@ export const UserPage = () => {
   return (
     <>
       <Header />
-      <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
+      <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4 dark:bg-gray-700">
         <section className="mx-auto max-w-3xl mb-8">
           <div className="flex items-center gap-10">
             <div className="flex h-28 w-28 items-center justify-center rounded-full bg-gray-200 text-4xl font-bold text-gray-600">
               {data[0]?.name[0].toUpperCase()}
             </div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               {data[0]?.name}
             </h1>
           </div>

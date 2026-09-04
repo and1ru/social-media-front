@@ -16,7 +16,7 @@ export const Languaje = () => {
     }
 
   return (
-    <select onChange={handleLanguaje} className="border outline-none p-2 rounded-lg">
+    <select onChange={handleLanguaje} className="border outline-none p-2 rounded-lg dark:bg-gray-800">
       { languaje === "en" ? <><option value="en">🇺🇸 english</option> <option value="es">🇨🇴 spanish</option></>  : <><option value="es">🇨🇴 spanish</option><option value="en">🇺🇸 english</option> </>}        
     </select>
   );

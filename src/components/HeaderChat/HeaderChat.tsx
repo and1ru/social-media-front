@@ -37,13 +37,13 @@ export const HeaderChat = () => {
     if(!name) return
 
     return (
-        <section className="flex items-center gap-4 p-4">
+        <section className="flex items-center gap-4 p-4 dark:bg-gray-800 dark:border-y-1 dark:border-white transition duration-400 ease-in-out">
             <div
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-lg font-semibold text-white">
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-800 text-lg font-semibold text-white dark:bg-white dark:text-black">
                 {name[0].toUpperCase()}
             </div>
             <div>
-                <h1 className="font-semibold text-gray-900">
+                <h1 className="font-semibold text-gray-900 dark:text-white">
                     {name}
                 </h1>
                 

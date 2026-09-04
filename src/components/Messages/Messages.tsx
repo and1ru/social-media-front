@@ -27,7 +27,7 @@ export const Messages = () => {
     }, [data, newMessages]);
 
     return (
-        <section className="h-full overflow-y-auto bg-gray-50 px-4 py-6">
+        <section className="h-full overflow-y-auto bg-gray-50 px-4 py-6 dark:bg-gray-800 transition duration-400 ease-in-out">
             <div className="mx-auto flex max-w-4xl flex-col gap-3">
                 {data.map((message) => (
                     <Message

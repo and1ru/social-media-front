@@ -19,13 +19,13 @@ export const UsersPage = () => {
     return (
         <>
             <Header />
-            <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-8 px-4">
+            <main className="min-h-screen bg-gray-50 py-8 px-4 dark:bg-gray-700">
                 <section className="mx-auto max-w-3xl">
                     <header className="mb-8">
-                        <h1 className="text-3xl font-bold text-gray-900">
+                        <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
                             { languaje === "en" ? en.searchUser : es.searchUser }
                         </h1>
-                        <p className="mt-2 text-gray-500">
+                        <p className="mt-2 text-gray-500 dark:text-white">
                             { languaje === "en" ? en.resultSearch : es.resultSearch } <span className="font-semibold">"{name}"</span>
                         </p>
                     </header>
