@@ -14,7 +14,7 @@ export const NotFound = () => {
         </h1>
 
         <p className="text-gray-400 text-lg pt-4">
-          Lo sentimos, la página que estás buscando no existe o ha sido movida.
+          We're sorry, the page you are looking for does not exist
         </p>
 
         <button

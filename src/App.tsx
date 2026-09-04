@@ -1,28 +1,21 @@
-// mejorar la hora de los mensajes ✔
-// header del chat ✔
-// mejorar la fecha de los post ✔
-// mejorar el tamaño de los post ✔
-// mensaje de que se creo el post ✔
-// mejorar los comentarios ✔
-// cuando busque a alguien no importa si es en mayuscula o minuscula 
-// cuando busque a alguien por el nombre y este incompleto hacer algo como a%
-// cuando busque a alguien si son amigos no mostrar el button de agregar, si ya envio la peticion entonces poner un mensaje como "en espera de respuesta"
-// pagina responsive
-// pagina con dark mode
-// pagina con cambio de idioma
-// authenticacion con el userId ✔
-// button de eliminar ✔
-// transicion suave entre pagina
-// delete a post ✔
+// pagina con dark mode ✔ (poner la pagina en dark)
+// en el chat (si pone un id de alguien pero no es el amigo o si ingresa un id no valido) pantalla de error
+// si al intentar buscar un usuario por el id no lo encuentra o pone el id mal, pantalla de error
 
 import { AuthProvider } from "./context/auth/AuthProvider";
+import { LanguajeProvider } from "./context/languaje/LanguajeProvider";
+import { ThemeProvider } from "./context/theme/ThemeProvider";
 import { RoutesProvider } from "./routes/routes-provider";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <RoutesProvider/>
-    </AuthProvider>
+    <LanguajeProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <RoutesProvider />
+        </AuthProvider>
+      </ThemeProvider>
+    </LanguajeProvider>
   );
 };
 

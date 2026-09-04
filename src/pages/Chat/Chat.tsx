@@ -1,7 +1,7 @@
 import { Header } from "../../components/Header/Header";
 import { HeaderChat } from "../../components/HeaderChat/HeaderChat";
 import { Messages } from "../../components/Messages/Messages";
-import { SendMessage } from "../../components/SendMessage/SendMessage.test";
+import { SendMessage } from "../../components/SendMessage/SendMessage";
 
 export const Chat = () => {
   return (

@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useStatus } from "../../cutomhooks/useStatus/useStatus";
 import { socket } from "../../cutomhooks/api.socket";
+import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
+import { es, en } from '../../laguaje'
 
 export const HeaderChat = () => {
     const { id } = useParams()
     if(!id) return
     const { data } = useStatus(id)
+    const { languaje } = useLanguajeContext()
 
     const [status, setStatus] = useState(false)
 
@@ -44,7 +47,7 @@ export const HeaderChat = () => {
                     {name}
                 </h1>
                 
-                {status ? <p className="text-green-500 font-bold">connected</p> : <p className="text-red-500 font-bold">disconnected</p>}
+                {status ? <p className="text-green-500 font-bold">{ languaje === "en" ? en.userConnected : es.userConnected}</p> : <p className="text-red-500 font-bold">{ languaje === "en" ? en.userDesconnected : es.userDesconnected}</p>}
             </div>
         </section>
     );

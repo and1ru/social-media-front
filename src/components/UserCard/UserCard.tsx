@@ -1,12 +1,21 @@
 import { useSendRequest } from "../../cutomhooks/useSendRequest/useSendRequest";
+import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
+import { es, en } from '../../laguaje'
 
 interface Props {
   name: string;
   id: string;
+  relation:string
 }
 
-export const UserCard = ({ name, id }: Props) => {
+export const UserCard = ({ name, id, relation }: Props) => {
   const { loading, error, sendRequest } = useSendRequest();
+  const { languaje } = useLanguajeContext()
+
+  const handleClick = () => {
+    console.log(id)
+    sendRequest(id)
+  }
 
   return (
     <article className="flex items-center justify-between rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md">
@@ -18,17 +27,19 @@ export const UserCard = ({ name, id }: Props) => {
         </div>
         <div>
           <h2 className="font-semibold text-gray-900">{name}</h2>
-
-          <p className="text-sm text-gray-500">Usuario</p>
         </div>
       </div>
-      <button
-        onClick={() => sendRequest(id)}
+      { relation === "friend" ? <p>{ languaje === "en" ? en.relationFriend : es.relationFriend }</p> : null}
+      { relation === "pendding_sent" ? <p>{ languaje === "en" ? en.relationWatting : es.relationWatting }</p> : null}
+      { relation === "pendding_received" ? <p>{ languaje === "en" ? en.relationRecive : es.relationRecive }</p>  : null}
+      { relation === "none" ? <button
+        onClick={handleClick}
         disabled={loading}
         className="rounded-xl bg-gray-900 px-5 py-2 font-medium text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
         {loading ? "Enviando..." : "Agregar"}
-      </button>
+      </button> : null }
+
       {error && <p className="text-sm text-red-500">Error</p>}
     </article>
   );

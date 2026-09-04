@@ -13,9 +13,9 @@ export const ChatsPage = () => {
     return (
         <>
             <Header />
-            <main className="min-h-[calc(100vh-64px)] bg-gray-50 py-10 px-4">
+            <main className="min-h-screen py-10 px-4 dark:bg-gray-700 duration-400 ease-in-out">
                 <section className="mx-auto max-w-3xl">
-                    <h1 className="mb-8 text-center text-3xl font-bold text-gray-900">
+                    <h1 className="mb-8 text-center text-3xl font-bold text-gray-900 dark:text-white">
                         Chats
                     </h1>
                     {loading && (

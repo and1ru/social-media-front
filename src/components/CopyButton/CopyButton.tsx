@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
+import { es, en } from '../../laguaje'
 
 interface Props {
     id: string
 }
 export const CopyButton = ({ id }: Props) => {
     const [isCopied, setIsCopied] = useState<boolean>(false)
+    const { languaje } = useLanguajeContext()
 
     const handleClick = async () => {
         try {
@@ -24,7 +27,7 @@ export const CopyButton = ({ id }: Props) => {
             <button 
                 onClick={handleClick}
                 className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100">
-                📤 Copy
+                📤 { languaje === "en" ? en.buttonCopy : es.buttonCopy}
             </button>
         </>
 

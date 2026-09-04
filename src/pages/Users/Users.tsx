@@ -3,9 +3,12 @@ import { useFindUsers } from "../../cutomhooks/useFindUsers/useFindUsers";
 import type { userType } from "../../schemas/user-schema";
 import { Header } from "../../components/Header/Header";
 import { UserCard } from "../../components/UserCard/UserCard";
+import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
+import { es, en } from '../../laguaje'
 
 export const UsersPage = () => {
     const [search] = useSearchParams();
+    const { languaje } = useLanguajeContext()
 
     const name = search.get("name");
 
@@ -20,10 +23,10 @@ export const UsersPage = () => {
                 <section className="mx-auto max-w-3xl">
                     <header className="mb-8">
                         <h1 className="text-3xl font-bold text-gray-900">
-                            Buscar usuarios
+                            { languaje === "en" ? en.searchUser : es.searchUser }
                         </h1>
                         <p className="mt-2 text-gray-500">
-                            Resultados para <span className="font-semibold">"{name}"</span>
+                            { languaje === "en" ? en.resultSearch : es.resultSearch } <span className="font-semibold">"{name}"</span>
                         </p>
                     </header>
                     {loading && (
@@ -42,14 +45,15 @@ export const UsersPage = () => {
                             {data.length > 0 ? (
                                 data.map((user) => (
                                     <UserCard
-                                        key={user._id}
-                                        id={user._id}
+                                        key={user.id}
+                                        id={user.id}
                                         name={user.name}
+                                        relation={user.relation}
                                     />
                                 ))
                             ) : (
                                 <div className="rounded-xl border border-dashed border-gray-300 bg-white p-10 text-center text-gray-500">
-                                    No se encontraron usuarios.
+                                    { languaje === "en" ? en.notFoundUsers : es.notFoundUsers }
                                 </div>
                             )}
 

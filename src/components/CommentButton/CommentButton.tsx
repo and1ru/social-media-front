@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useComment } from "../../cutomhooks/useComment/useComment";
 import { useGetComment } from "../../cutomhooks/useGetComment/useGetComment";
+import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
+import { es, en } from '../../laguaje'
 
 interface Props {
     postId: string;
@@ -10,6 +12,8 @@ export const CommentButton = ({ postId }: Props) => {
     const [value, setValue] = useState<string>("")
     const { data, loading, error, refetch } = useGetComment(postId)
     const { comment } = useComment()
+    const { languaje } = useLanguajeContext()
+
     const dialogRef = useRef<HTMLDialogElement | null>(null);
 
     function openDialog() {
@@ -52,7 +56,7 @@ export const CommentButton = ({ postId }: Props) => {
                 className="w-[95%] max-w-xl rounded-2xl bg-white p-6 shadow-2xl backdrop:bg-black/60 m-auto">
                 <div className="flex items-center justify-between">
                     <h2 className="text-xl font-semibold">
-                        Comentarios
+                        { languaje === "en" ? en.comments : es.comments}
                     </h2>
                     <button
                         onClick={closeDialog}
@@ -83,13 +87,13 @@ export const CommentButton = ({ postId }: Props) => {
                     <input
                         value={value}
                         onChange={handleInput}
-                        placeholder="Escribe un comentario..."
+                        placeholder={ languaje === "en" ? en.inputComment : es.inputComment}
                         className="flex-1 rounded-xl border  border-gray-300 px-4 py-3 outline-none  focus:border-gray-900" />
                     <button
                         disabled={loading}
                         type="submit"
                         className="rounded-xl bg-gray-900 px-5 text-white transition hover:bg-gray-700">
-                        { loading ? "enviando..." : "Enviar"}
+                        { loading ? "enviando..." : languaje === "en" ? en.buttonSend : es.buttonSend }
                     </button>
                 </form>
             </dialog>
