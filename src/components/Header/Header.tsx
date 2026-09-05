@@ -38,38 +38,42 @@ export const Header = () => {
                             <LogOutButton />
                         </li>
                         <li className="md:hidden">
-                            <button onClick={handleClick}>barra</button>
+                            <div onClick={handleClick} className="flex flex-col gap-1 hover:bg-gray-300 dark:hover:bg-gray-500 p-4 rounded-full">
+                                <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
+                                <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
+                                <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
+                            </div>
                         </li>
                     </ul>
                 </nav>
             </header>
             
-            <aside className={`fixed h-full top-0 right-0 w-64 z-50 transition-transform duration-300 ${isVisible ? "translate-x-0" : "translate-x-full"} shadow-2xl md:hidden`}>
+            <aside className={`fixed h-full top-0 right-0 w-64 z-50 transition-transform duration-300 ${isVisible ? "translate-x-0" : "translate-x-full"} shadow-2xl md:hidden `}>
                 <nav className="h-full w-full">
-                    <ul className="flex flex-col h-full w-full bg-white justify-between p-5 border-l border-gray-100">
+                    <ul className="flex flex-col h-full w-full bg-white justify-between p-5 border-l border-gray-100 dark:bg-gray-700">
                         <li className="flex justify-between items-center pb-3 border-b border-gray-100">
-                            <p className="font-semibold text-gray-500 text-xs uppercase tracking-wider">Menu</p>
+                            <p className="font-semibold text-gray-500 text-xs uppercase tracking-wider dark:text-white">Menu</p>
                             <p 
                                 onClick={handleClick}
-                                className="cursor-pointer font-semibold text-gray-400 hover:text-gray-700 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                                className="cursor-pointer font-semibold text-gray-400 hover:text-gray-700 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors dark:text-white dark:hover:bg-gray-500 dark:hover:text-white"
                             >
                                 X
                             </p>
                         </li>
                         <li className="flex-1 py-4">
                             <div className="space-y-1">
-                                <Link to={"/private/chats"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block">chat</Link>
-                                <Link to={"/private/social"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block">Social</Link>
-                                <Link to={"/private/friends"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block">Friends</Link>
+                                <Link to={"/private/chats"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">chat</Link>
+                                <Link to={"/private/social"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">Social</Link>
+                                <Link to={"/private/friends"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">Friends</Link>
                             </div>
                         </li>
                         <li className="py-3 border-t border-gray-100">
-                            <div className="flex flex-col justify-around gap-4 bg-gray-50 p-2 rounded-xl">
+                            <div className="flex flex-col justify-around gap-4 bg-gray-50 p-2 rounded-xl dark:bg-gray-700">
                                 <Theme />
                                 <Languaje />
                             </div>
                         </li>
-                        <li className="pt-2 border-t border-gray-100"><LogOutButton /></li>
+                        <li className="pt-2 border-gray-100"><LogOutButton /></li>
                     </ul>
                 </nav>
             </aside>

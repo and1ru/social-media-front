@@ -1,9 +1,7 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { usePostUser } from "../../cutomhooks/usePostUser/usePostUser";
 import { Header } from "../../components/Header/Header";
 import { PostCard } from "../../components/PostCard/PostCard";
-
-// para obtener el nombre del usuario entonces enviar el userId y el nombre
 
 export const UserPage = () => {
   const {id} = useParams()
@@ -11,7 +9,8 @@ export const UserPage = () => {
   const { data, loading, error } = usePostUser(id)
 
   if(loading) return <p>loading</p>
-  if(error) return <p>error</p>
+  if(error) return <Navigate to={"/private/error"} replace/>
+
   return (
     <>
       <Header />

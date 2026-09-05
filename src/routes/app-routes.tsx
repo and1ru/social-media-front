@@ -11,6 +11,7 @@ import { PostPage } from "../pages/Post/Post";
 import { RootPage } from "../pages/Root/Root";
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Chat } from "../pages/Chat/Chat";
+import { SomethingWentWrong } from "../pages/SomethignWentWront/SomethignWentWront";
 
 export const routes = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ export const routes = createBrowserRouter([
             {
                 path: "post/:id",
                 element: <PostPage />
+            },
+            {
+                path: "error",
+                element: <SomethingWentWrong />
             }
         ],
     },

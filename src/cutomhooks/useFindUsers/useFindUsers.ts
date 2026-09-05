@@ -30,5 +30,5 @@ export const useFindUsers = <T>(name:string) => {
         findUsers()
     },[])
 
-    return {data, loading, success, error}
+    return {data, loading, success, error, refetch:findUsers}
 }

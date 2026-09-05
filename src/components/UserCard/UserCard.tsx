@@ -1,4 +1,3 @@
-import { useSendRequest } from "../../cutomhooks/useSendRequest/useSendRequest";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 
@@ -6,15 +5,14 @@ interface Props {
   name: string;
   id: string;
   relation:string
+  onClick: (id:string) => Promise<void>
 }
 
-export const UserCard = ({ name, id, relation }: Props) => {
-  const { loading, error, sendRequest } = useSendRequest();
+export const UserCard = ({ name, id, relation, onClick }: Props) => {
   const { languaje } = useLanguajeContext()
 
   const handleClick = () => {
-    console.log(id)
-    sendRequest(id)
+    onClick(id)
   }
 
   return (
@@ -34,13 +32,13 @@ export const UserCard = ({ name, id, relation }: Props) => {
       { relation === "pendding_received" ? <p>{ languaje === "en" ? en.relationRecive : es.relationRecive }</p>  : null}
       { relation === "none" ? <button
         onClick={handleClick}
-        disabled={loading}
+        // disabled={loading}
         className="rounded-xl bg-gray-900 px-5 py-2 font-medium text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {loading ? "Enviando..." : "Agregar"}
+        {/* {loading ? "Enviando..." : } */ "Agregar"}
       </button> : null }
 
-      {error && <p className="text-sm text-red-500">Error</p>}
+      {/* {error && <p className="text-sm text-red-500">Error</p>} */}
     </article>
   );
 };

@@ -30,5 +30,5 @@ export const useGetRequest = <T>() => {
         getRequest()
     },[])
 
-    return {data, loading, error, success}
+    return {data, loading, error, success, refetch:getRequest}
 }

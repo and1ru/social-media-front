@@ -1,11 +1,13 @@
 import { useAcceptRequest } from "../../cutomhooks/useAcceptRequst/useAcceptRequst";
+import { useGetRequest } from "../../cutomhooks/useGetRequest/useGetRequest";
 
 interface Props {
   requestId:string;
 }
 
 export const AcceptRequestButton = ({requestId}:Props) => {
-    const {acceptRequest, error, loading } = useAcceptRequest()
+    const {acceptRequest, error, loading, success } = useAcceptRequest()
+    const {} = useGetRequest()
 
     const handleClick = async () => {
       await acceptRequest(requestId)

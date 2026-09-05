@@ -4,10 +4,12 @@ import { loginSchema, type loginType } from "../../schemas/login-schema";
 import { useNavigate } from "react-router-dom";
 import { useLoging } from "../../cutomhooks/useLogin/useLogin";
 import { Input } from "../../components/Input/Input";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const LoginPage = () => {
     const { error, loading, success, login } = useLoging()
+    const [openDialog, setOpenDialog] = useState<boolean>(false)
     const { handleSubmit, control, formState: { errors } } = useForm<loginType>({
         defaultValues: {
             email: "",
@@ -27,55 +29,64 @@ export const LoginPage = () => {
         navegar("/register", { replace: true })
     }
 
-    useEffect(()=> {
-        if(success){
-            navegar("/private/chats", {replace:true})
+    useEffect(() => {
+        if (success) {
+            navegar("/private/chats", { replace: true })
         }
-    },[success])
+    }, [success])
 
-return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-        <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
-            <h1 className="text-3xl font-bold text-center text-gray-900">
-                Welcome
-            </h1>
-            <p className="text-center text-gray-500 mt-2">
-                Sign in to continue
-            </p>
+    useEffect(()=> {
+        if(error){
+            setOpenDialog(true)
+        }
+        if(!error){
+            setOpenDialog(false)
+        }
+    },[error])
 
-            {error && (
-                <p className="mt-5 rounded-lg bg-red-100 text-red-700 p-3 text-sm">
-                    {error}
-                </p>
-            )}
+    return (
+        <>
+            <ErrorMessage open={openDialog}>
+                <p>error al intentar inicial seccion</p>
+            </ErrorMessage>
+            <main className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+                <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
+                    <h1 className="text-3xl font-bold text-center text-gray-900">
+                        Welcome
+                    </h1>
+                    <p className="text-center text-gray-500 mt-2">
+                        Sign in to continue
+                    </p>
+                    { error ?? <p>error</p>}
+                    {loading && (
+                        <p className="mt-5 rounded-lg bg-blue-100 text-blue-700 p-3 text-sm">
+                            Loading...
+                        </p>
+                    )}
 
-            {loading && (
-                <p className="mt-5 rounded-lg bg-blue-100 text-blue-700 p-3 text-sm">
-                    Loading...
-                </p>
-            )}
+                    <form
+                        onSubmit={handleSubmit(handleForm)}
+                        className="mt-8 flex flex-col gap-5"
+                    >
+                        <Input control={control} name="email" label="Email" type="email" error={errors.email} />
+                        <Input control={control} name="password" label="Password" type="password" error={errors.password} />
 
-            <form
-                onSubmit={handleSubmit(handleForm)}
-                className="mt-8 flex flex-col gap-5"
-            >
-                <Input control={control} name="email" label="Email" type="email" error={errors.email}/>
-                <Input control={control} name="password" label="Password" type="password" error={errors.password}/>
+                        <button className="w-full rounded-xl bg-gray-900 py-3 text-white font-medium transition hover:bg-gray-700 active:scale-95 disabled:opacity-50">
+                            Login
+                        </button>
+                    </form>
+                    <p className="mt-8 text-center text-sm text-gray-600">
+                        Don't have an account?
+                        <span
+                            onClick={onClickNavigate}
+                            className="cursor-pointer font-semibold text-gray-900 hover:underline"
+                        >
+                            Register
+                        </span>
+                    </p>
+                </section>
+            </main>
+        </>
 
-                <button className="w-full rounded-xl bg-gray-900 py-3 text-white font-medium transition hover:bg-gray-700 active:scale-95 disabled:opacity-50">
-                    Login
-                </button>
-            </form>
-            <p className="mt-8 text-center text-sm text-gray-600">
-                Don't have an account? 
-                <span
-                    onClick={onClickNavigate}
-                    className="cursor-pointer font-semibold text-gray-900 hover:underline"
-                >
-                    Register
-                </span>
-            </p>
-        </section>
-    </main>
-);
+    );
 };

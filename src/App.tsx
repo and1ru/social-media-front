@@ -1,6 +1,4 @@
-// pagina con dark mode ✔ (poner la pagina en dark)
-// en el chat (si pone un id de alguien pero no es el amigo o si ingresa un id no valido) pantalla de error
-// si al intentar buscar un usuario por el id no lo encuentra o pone el id mal, pantalla de error
+// testing
 
 import { AuthProvider } from "./context/auth/AuthProvider";
 import { LanguajeProvider } from "./context/languaje/LanguajeProvider";

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { useGetMessages } from "../../cutomhooks/useGetMessages/useGetMessages";
 import { useNewMessages } from "../../cutomhooks/useNewMessages/useNewMessages";
 import { Message } from "../Message/Message";
@@ -15,7 +15,7 @@ export const Messages = () => {
     const { id } = useParams()
     if (!id) return
 
-    const { data } = useGetMessages<MessageT>(id);
+    const { data, error } = useGetMessages<MessageT>(id);
     const { newMessages } = useNewMessages<MessageT>(id)
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -26,6 +26,7 @@ export const Messages = () => {
         });
     }, [data, newMessages]);
 
+    if(error) return <Navigate to={"/private/error"} replace/>
     return (
         <section className="h-full overflow-y-auto bg-gray-50 px-4 py-6 dark:bg-gray-800 transition duration-400 ease-in-out">
             <div className="mx-auto flex max-w-4xl flex-col gap-3">

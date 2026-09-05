@@ -1,3 +1,4 @@
+import { useGetRequest } from "../../cutomhooks/useGetRequest/useGetRequest";
 import { useRejectRequest } from "../../cutomhooks/useRejectRequest/useRejectRequest";
 
 interface Props {
@@ -5,12 +6,16 @@ interface Props {
 }
 
 export const RejectRequestButton = ({id}:Props) => {
-    const {error, loading, rejectRequest} = useRejectRequest()
+    const {error, loading, rejectRequest, success} = useRejectRequest()
+    const { refetch } = useGetRequest()
 
     const handleClick = async () => {
       await rejectRequest(id)
+      if(success){
+        refetch()
+      }
     }
-
+    
     if(error) return <p>error</p>
     if(loading) return <p>loading</p>
   return (

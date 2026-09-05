@@ -10,6 +10,7 @@ export const useLoging = <T>() => {
 
   const login = async (body: any) => {
     setLoading(true)
+    seterror(false)
     try {
       const request = await apiClient.post("login", body, {withCredentials:true});
       console.log(request.data)
@@ -22,6 +23,7 @@ export const useLoging = <T>() => {
         console.log(error.response?.status);
         console.log(error.response?.data);
         console.log(error.response?.data.message);
+        seterror(true)
       }
       seterror(true)
       setSuccess(false)

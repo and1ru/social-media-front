@@ -17,23 +17,23 @@ export const FindUserForm = () => {
     };
 
     return (
-        <section>
-        <form
-            onSubmit={handleSubmit}
-            className="flex items-center rounded-2xl border border-gray-200 bg-white p-3 shadow-sm gap-1">
-            <input
-                type="text"
-                placeholder={ languaje === "en" ? en.inputFriends : es.inputFriends}
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="flex-1 rounded-xl border border-gray-300 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 px-2 xl:px-4 py-3"/>
+        <section className="">
+            <form
+                onSubmit={handleSubmit}
+                className="flex items-center rounded-2xl border border-gray-200 bg-white p-3 shadow-sm gap-1 dark:bg-gray-500">
+                <input
+                    type="text"
+                    placeholder={languaje === "en" ? en.inputFriends : es.inputFriends}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="flex-1 rounded-xl border border-gray-300 outline-none transition focus:border-gray-900 focus:ring-2 focus:ring-gray-200 px-2 xl:px-4 py-3 bg-white" />
 
-            <button
-                type="submit"
-                className="rounded-xl bg-gray-900 font-medium text-white transition hover:bg-gray-700 active:scale-95 px-2 xl:px-6 py-3">
-                { languaje === "en" ? en.buttonFriends : es.buttonFriends}
-            </button>
-        </form>
+                <button
+                    type="submit"
+                    className="rounded-xl bg-gray-900 font-medium text-white transition hover:bg-gray-700 active:scale-95 px-2 xl:px-6 py-3 dark:bg-gray-200 dark:text-black">
+                    {languaje === "en" ? en.buttonFriends : es.buttonFriends}
+                </button>
+            </form>
         </section>
 
     );

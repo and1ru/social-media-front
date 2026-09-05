@@ -5,6 +5,8 @@ import { Header } from "../../components/Header/Header";
 import { UserCard } from "../../components/UserCard/UserCard";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
+import { useSendRequest } from "../../cutomhooks/useSendRequest/useSendRequest";
+import { useEffect } from "react";
 
 export const UsersPage = () => {
     const [search] = useSearchParams();
@@ -12,9 +14,16 @@ export const UsersPage = () => {
 
     const name = search.get("name");
 
-    if (!name) return;
+    if (!name) return <p>name is missing</p>;
 
-    const { data, error, loading } = useFindUsers<userType>(name);
+    const { data, error, loading, refetch,  } = useFindUsers<userType>(name);
+    const { sendRequest,success } = useSendRequest();
+
+    useEffect(()=> {
+        if(success){
+            refetch()
+        }
+    },[success])
 
     return (
         <>
@@ -45,6 +54,7 @@ export const UsersPage = () => {
                             {data.length > 0 ? (
                                 data.map((user) => (
                                     <UserCard
+                                    onClick={sendRequest}
                                         key={user.id}
                                         id={user.id}
                                         name={user.name}

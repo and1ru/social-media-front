@@ -3,10 +3,21 @@ import { useGetRequest } from "../../cutomhooks/useGetRequest/useGetRequest";
 import type { requestType } from "../../schemas/request-schema";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
+import { useRejectRequest } from "../../cutomhooks/useRejectRequest/useRejectRequest";
+import { useAcceptRequest } from "../../cutomhooks/useAcceptRequst/useAcceptRequst";
+import { useEffect } from "react";
 
 export const FriendRequests = () => {
     const { languaje } = useLanguajeContext()
-    const { data, error, loading } = useGetRequest<requestType>();
+    const { data, error, loading, refetch } = useGetRequest<requestType>();
+    const { rejectRequest, successReject } = useRejectRequest()
+    const { acceptRequest, successAccept } = useAcceptRequest()
+
+    useEffect(()=> {
+        if(successReject || successAccept){
+            refetch()
+        }
+    },[successAccept, successReject])
 
     return (
         <>
@@ -24,6 +35,8 @@ export const FriendRequests = () => {
                 {data.length > 0 ? (
                     data.map((request) => (
                         <FriendCard
+                            onAccept={acceptRequest}
+                            onReject={rejectRequest}
                             name={request.userName}
                             key={request._id}
                             id={request._id}
