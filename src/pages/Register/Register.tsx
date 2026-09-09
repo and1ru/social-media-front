@@ -6,11 +6,13 @@ import { useRegister } from "../../cutomhooks/useRegister/useRegister";
 import { Input } from "../../components/Input/Input";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+import { SuccessMessage } from "../../components/SuccesMessage/SuccesMessage";
 
 export const RegisterPage = () => {
     const navegar = useNavigate()
     const { error, loading, register, success } = useRegister()
-    const [openDialog, setOpenDialog] = useState<boolean>(false)
+    const [openSuccess, setOpenSuccess] = useState<boolean>(false)
+    const [openError, setOpenError] = useState<boolean>(false)
     const { handleSubmit, control, formState: { errors } } = useForm<registerType>({
         defaultValues: {
             confirmPassword: "",
@@ -22,11 +24,8 @@ export const RegisterPage = () => {
         resolver: zodResolver(registerSchema)
     })
 
-    const handleForm: SubmitHandler<registerType> = async (data) => {
-        await register(data)
-        if (success) {
-            navegar("/login", { replace: true })
-        }
+    const handleForm: SubmitHandler<registerType> = (data) => {
+        register(data)
     }
 
     function onClickNavigate(url: string) {
@@ -35,17 +34,20 @@ export const RegisterPage = () => {
 
     useEffect(() => {
         if (error) {
-            setOpenDialog(true)
+            setOpenError(true)
         }
-        if (!error) {
-            setOpenDialog(false)
+        if(success){
+            setOpenSuccess(true)
         }
-    }, [error])
+    }, [error, success])
 
     return (
         <>
-            <ErrorMessage open={openDialog}>
-                <p>error al intentar registrarse</p>
+        <SuccessMessage open={openSuccess} >
+            se creo correctamente el usuario
+        </SuccessMessage>
+            <ErrorMessage open={openError}>
+                error al intentar registrarse
             </ErrorMessage>
             <main className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-7">
                 {loading && <p>loading</p>}

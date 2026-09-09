@@ -20,7 +20,7 @@ export const Header = () => {
                     <ul className="flex justify-around items-center">
                         <li className="py-4 px-5 rounded-lg">Chat App</li>
                         <li>
-                            <Link to={"/private/chats"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">chat</Link>
+                            <Link to={"/private/chats"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">Chat</Link>
                         </li>
                         <li>
                             <Link to={"/private/social"} className="hover:bg-gray-200 hover:border-b-2 dark:hover:bg-gray-900 py-4 px-5 rounded-lg hidden md:block">Social</Link>
@@ -62,9 +62,9 @@ export const Header = () => {
                         </li>
                         <li className="flex-1 py-4">
                             <div className="space-y-1">
-                                <Link to={"/private/chats"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">chat</Link>
+                                <Link to={"/private/chats"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">Chat</Link>
                                 <Link to={"/private/social"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">Social</Link>
-                                <Link to={"/private/friends"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">Friends</Link>
+                                <Link to={"/private/friends"} className="px-4 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-indigo-50 transition-colors block dark:text-white dark:hover:bg-gray-600">{ languaje === "en" ? en.headerFriends : es.headerFriends}</Link>
                             </div>
                         </li>
                         <li className="py-3 border-t border-gray-100">

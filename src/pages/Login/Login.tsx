@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const LoginPage = () => {
-    const { error, loading, success, login } = useLoging()
+    const { error, success, login } = useLoging()
     const [openDialog, setOpenDialog] = useState<boolean>(false)
     const { handleSubmit, control, formState: { errors } } = useForm<loginType>({
         defaultValues: {
@@ -47,7 +47,7 @@ export const LoginPage = () => {
     return (
         <>
             <ErrorMessage open={openDialog}>
-                <p>error al intentar inicial seccion</p>
+                error al intentar inicial seccion
             </ErrorMessage>
             <main className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
                 <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
@@ -57,13 +57,6 @@ export const LoginPage = () => {
                     <p className="text-center text-gray-500 mt-2">
                         Sign in to continue
                     </p>
-                    { error ?? <p>error</p>}
-                    {loading && (
-                        <p className="mt-5 rounded-lg bg-blue-100 text-blue-700 p-3 text-sm">
-                            Loading...
-                        </p>
-                    )}
-
                     <form
                         onSubmit={handleSubmit(handleForm)}
                         className="mt-8 flex flex-col gap-5"

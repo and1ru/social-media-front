@@ -11,6 +11,7 @@ export const useRegister = <T>() => {
   const register = async (body:any) => {
     setLoading(true);
     setError(false)
+    setSuccess(false)
     try {
       const request = await apiClient.post("register", body,);
       setData(request.data);
