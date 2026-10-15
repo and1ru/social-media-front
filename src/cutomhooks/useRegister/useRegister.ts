@@ -23,7 +23,6 @@ export const useRegister = <T>() => {
           console.log(error.response?.data.message);
         }
       setError(true);
-      setSuccess(false)
     } finally {
       setLoading(false);
     }

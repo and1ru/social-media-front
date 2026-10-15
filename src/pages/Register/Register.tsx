@@ -13,7 +13,7 @@ export const RegisterPage = () => {
     const { error, register, success } = useRegister()
     const [openSuccess, setOpenSuccess] = useState<boolean>(false)
     const [openError, setOpenError] = useState<boolean>(false)
-    const { handleSubmit, control, formState: { errors } } = useForm<registerType>({
+    const { handleSubmit, control, formState: { errors }, reset } = useForm<registerType>({
         defaultValues: {
             confirmPassword: "",
             email: "",
@@ -25,6 +25,8 @@ export const RegisterPage = () => {
     })
 
     const handleForm: SubmitHandler<registerType> = (data) => {
+        setOpenError(false)
+        setOpenSuccess(false)
         register(data)
     }
 
@@ -36,9 +38,12 @@ export const RegisterPage = () => {
         if (error) {
             setOpenError(true)
         }
+
         if (success) {
             setOpenSuccess(true)
+            reset()
         }
+
     }, [error, success])
 
     return (

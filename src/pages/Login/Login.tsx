@@ -47,7 +47,7 @@ export const LoginPage = () => {
     return (
         <>
             <ErrorMessage open={openDialog}>
-                error al intentar inicial seccion
+                Error trying to log in
             </ErrorMessage>
             <main className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
                 <section className="w-full max-w-md rounded-2xl bg-white shadow-lg p-8">
