@@ -23,11 +23,11 @@ export const CopyButton = ({ id }: Props) => {
 
     return (
         <>
-        { isCopied && <article className="fixed top-5 mx-auto bg-green-500 px-5 py-3 rounded-lg">se copio el post con exito</article>}
+        { isCopied && <article className="fixed top-5 mx-auto bg-green-400 p-5 rounded-lg text-xl dark:text-white">{languaje === "en" ? "Just copied the post" : "Se copio el post"}</article>}
             <button 
                 onClick={handleClick}
                 className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100 dark:hover:bg-gray-600">
-                📤 { languaje === "en" ? en.buttonCopy : es.buttonCopy}
+                📤 { languaje === "en" ? en.buttonCopy : es.buttonCopy }
             </button>
         </>
 

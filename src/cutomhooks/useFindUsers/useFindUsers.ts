@@ -13,7 +13,6 @@ export const useFindUsers = <T>(name:string) => {
         try {
             const request = await apiClient.get(`find-users/${name}`)
             setData(request.data.result)
-            console.log(request.data)
             setSuccess(true)
         } catch (error) {
             if(isAxiosError(error)){

@@ -53,7 +53,7 @@ export const SendMessage = () => {
                     value={message}
                     onChange={handleMessage}
                     placeholder={ languaje === "en" ? en.inputChat : es.inputChat}
-                    className="flex-1 bg-transparent outline-none text-gray-800 placeholder:text-gray-400 "/>
+                    className="flex-1 bg-transparent outline-none text-gray-800 placeholder:text-gray-400 dark:text-white"/>
 
                 <button
                     type="button"

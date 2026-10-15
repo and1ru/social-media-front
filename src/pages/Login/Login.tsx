@@ -54,9 +54,6 @@ export const LoginPage = () => {
                     <h1 className="text-3xl font-bold text-center text-gray-900">
                         Welcome
                     </h1>
-                    <p className="text-center text-gray-500 mt-2">
-                        Sign in to continue
-                    </p>
                     <form
                         onSubmit={handleSubmit(handleForm)}
                         className="mt-8 flex flex-col gap-5"
@@ -72,7 +69,7 @@ export const LoginPage = () => {
                         Don't have an account?
                         <span
                             onClick={onClickNavigate}
-                            className="cursor-pointer font-semibold text-gray-900 hover:underline"
+                            className="ml-1 cursor-pointer font-semibold text-gray-900 hover:underline"
                         >
                             Register
                         </span>

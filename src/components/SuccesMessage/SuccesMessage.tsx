@@ -30,7 +30,7 @@ export const SuccessMessage = ({ open, children }: Props) => {
 
         <button
           onClick={closeDialog}
-          className=" mt-7 w-full rounded-xl bg-red-500 px-5 py-3 font-semibold text-white transition hover:bg-red-600 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-red-200">
+          className=" mt-7 w-full rounded-xl bg-green-500 px-5 py-3 font-semibold text-white transition hover:bg-green-600 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-green-200">
           Cerrar
         </button>
       </div>

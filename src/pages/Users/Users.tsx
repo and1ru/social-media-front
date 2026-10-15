@@ -40,12 +40,12 @@ export const UsersPage = () => {
                     </header>
                     {loading && (
                         <div className="rounded-xl bg-blue-50 p-4 text-center text-blue-700">
-                            Buscando usuarios...
+                            { languaje === "en" ? "searching users" : "buscando usuarios" }
                         </div>
                     )}
                     {error && (
                         <div className="rounded-xl bg-red-50 p-4 text-center text-red-700">
-                            Ocurrió un error al realizar la búsqueda.
+                            { languaje === "en" ? "Something went wrong trying to search" : "Ocurrió un error al realizar la búsqueda." }
                         </div>
                     )}
                     {!loading && !error && (
