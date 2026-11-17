@@ -10,7 +10,7 @@ export const useGetPosts = <T>() => {
   const getPosts = async () => {
     setLoading(true)
     try {
-        const request = await apiClient.get("get-posts", {withCredentials:true})
+        const request = await apiClient.get("get-posts")
         setData(request.data.result)
         setSuccess(true)
     } catch (error) {

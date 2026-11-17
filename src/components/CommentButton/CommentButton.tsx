@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import { useComment } from "../../cutomhooks/useComment/useComment";
-import { useGetComment } from "../../cutomhooks/useGetComment/useGetComment";
+import { useComment } from "../../cutomHooks/useComment/useComment";
+import { useGetComment } from "../../cutomHooks/useGetComment/useGetComment";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 

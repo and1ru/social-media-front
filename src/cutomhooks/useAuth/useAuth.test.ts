@@ -78,7 +78,7 @@ describe("useAuth", () => {
 
         mockGet.mockResolvedValue({
             data: response,
-        } as never);
+        });
 
         const { result } = renderHook(() => useAuth());
 

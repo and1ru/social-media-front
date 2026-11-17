@@ -1,6 +1,6 @@
 import { CardChat } from "../../components/CardChat/CardChat";
 import { Header } from "../../components/Header/Header";
-import { useChatsFriends } from "../../cutomhooks/useChatsFriends/useChatsFriends";
+import { useChatsFriends } from "../../cutomHooks/useChatsFriends/useChatsFriends";
 
 export const ChatsPage = () => {
     const { data, error, loading } = useChatsFriends();

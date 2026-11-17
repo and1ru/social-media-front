@@ -9,9 +9,10 @@ export const useGetMessages = <T>(friendId:string) => {
 
     const getMessages =  async () => {
         setLoading(true)
+        setError(false)
         try {
-            const request = await apiClient.get(`get-messages/${friendId}`, {withCredentials:true})
-            setData(request.data.result)
+            const request = await apiClient.get(`get-messages/${friendId}`)
+            setData(request.data)
             setSuccess(true)
         } catch (error) {
             setError(true)

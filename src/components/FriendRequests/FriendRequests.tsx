@@ -1,10 +1,10 @@
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
-import { useGetRequest } from "../../cutomhooks/useGetRequest/useGetRequest";
+import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
 import type { requestType } from "../../schemas/request-schema";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
-import { useRejectRequest } from "../../cutomhooks/useRejectRequest/useRejectRequest";
-import { useAcceptRequest } from "../../cutomhooks/useAcceptRequest/useAcceptRequest";
+import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
+import { useAcceptRequest } from "../../cutomHooks/useAcceptRequest/useAcceptRequest";
 import { useEffect } from "react";
 
 export const FriendRequests = () => {

@@ -1,11 +1,10 @@
 import { useSearchParams } from "react-router-dom";
-import { useFindUsers } from "../../cutomhooks/useFindUsers/useFindUsers";
-import type { userType } from "../../schemas/user-schema";
+import { useFindUsers } from "../../cutomHooks/useFindUsers/useFindUsers";
 import { Header } from "../../components/Header/Header";
 import { UserCard } from "../../components/UserCard/UserCard";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
-import { useSendRequest } from "../../cutomhooks/useSendRequest/useSendRequest";
+import { useSendRequest } from "../../cutomHooks/useSendRequest/useSendRequest";
 import { useEffect } from "react";
 
 export const UsersPage = () => {
@@ -16,7 +15,7 @@ export const UsersPage = () => {
 
     if (!name) return <p>name is missing</p>;
 
-    const { data, error, loading, refetch,  } = useFindUsers<userType>(name);
+    const { data, error, loading, refetch,  } = useFindUsers(name);
     const { sendRequest,success } = useSendRequest();
 
     useEffect(()=> {

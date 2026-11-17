@@ -1,4 +1,4 @@
-import { useGetPosts } from "../../cutomhooks/useGetPost/useGetPost";
+import { useGetPosts } from "../../cutomHooks/useGetPost/useGetPost";
 import type { postsType } from "../../schemas/posts-schema";
 import { PostCard } from "../PostCard/PostCard";
 

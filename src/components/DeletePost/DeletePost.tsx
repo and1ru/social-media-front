@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDeletePost } from "../../cutomhooks/useDeletePost/useDeletePost";
+import { useDeletePost } from "../../cutomHooks/useDeletePost/useDeletePost";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 
 interface Props {

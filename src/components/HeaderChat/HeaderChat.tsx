@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useStatus } from "../../cutomhooks/useStatus/useStatus";
-import { socket } from "../../cutomhooks/api.socket";
+import { useStatus } from "../../cutomHooks/useStatus/useStatus";
+import { socket } from "../../cutomHooks/api.socket";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 

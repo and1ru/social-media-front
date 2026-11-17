@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useLogOut } from "../../cutomhooks/useLogOut/useLogOut";
+import { useLogOut } from "../../cutomHooks/useLogOut/useLogOut";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 import { useEffect } from "react";

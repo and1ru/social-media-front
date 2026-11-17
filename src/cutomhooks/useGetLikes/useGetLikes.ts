@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "../api.client";
 
-interface DataI{
-    message:string;
-    liked: boolean;
-    likes: number
+interface Response {
+    result: {
+        liked: boolean;
+        likes: number
+    }
+    message: string;
+    success: boolean
 }
 
 export const useGetLikes = (postId: string) => {
-    const [likes, setData] = useState<DataI>()
+    const [data, setData] = useState<Response>()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
@@ -18,16 +21,15 @@ export const useGetLikes = (postId: string) => {
             const request = await apiClient.get(`like/${postId}`)
             setData(request.data)
         } catch (error) {
-            console.error(error)
             setError(true)
         } finally {
             setLoading(false)
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         like()
-    },[])
+    }, [])
 
-    return { likes, loading, error, refetch:like}
+    return { data, loading, error, refetch: like }
 }

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { usePost } from "../../cutomhooks/usePost/usePost";
+import { usePost } from "../../cutomHooks/usePost/usePost";
 import { Header } from "../../components/Header/Header";
 import { PostCard } from "../../components/PostCard/PostCard";
 

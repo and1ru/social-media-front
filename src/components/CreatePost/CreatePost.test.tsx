@@ -3,7 +3,7 @@ import { expect, it, describe, vi, beforeEach } from 'vitest'
 
 import { CreatePost } from './CreatePost'
 import { useLanguajeContext } from '../../context/languaje/LanguajeContext'
-import { useCreatePost } from "../../cutomhooks/useCreatePost/useCreatePost";
+import { useCreatePost } from "../../cutomHooks/useCreatePost/useCreatePost";
 
 vi.mock("../../cutomhooks/useCreatePost/useCreatePost", () => ({
 

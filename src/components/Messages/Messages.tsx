@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { useGetMessages } from "../../cutomhooks/useGetMessages/useGetMessages";
-import { useNewMessages } from "../../cutomhooks/useNewMessages/useNewMessages";
+import { useGetMessages } from "../../cutomHooks/useGetMessages/useGetMessages";
+import { useNewMessages } from "../../cutomHooks/useNewMessages/useNewMessages";
 import { Message } from "../Message/Message";
 
 interface MessageT {

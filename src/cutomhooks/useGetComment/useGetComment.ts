@@ -10,13 +10,18 @@ interface Comment {
 }
 
 interface DataT {
-    message: string;
     commentCount: number;
     comments: Comment[]
 }
 
+interface Response {
+    result: DataT
+    success: boolean
+    message: string
+}
+
 export const useGetComment = (postId:string) => {
-    const [data, setData] = useState<DataT>()
+    const [data, setData] = useState<Response>()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
