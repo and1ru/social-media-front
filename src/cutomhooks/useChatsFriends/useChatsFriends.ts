@@ -1,35 +1,36 @@
 import { useEffect, useState } from "react";
 import { apiClient } from "../api.client";
-import axios from "axios";
 
-export const useChatsFriends = <T>() => {
-  const [data, setData] = useState<null | T[]>(null);
+interface Response {
+  name: string;
+  id: string;
+}
+
+export const useChatsFriends = () => {
+  const [data, setData] = useState<null | Response[]>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false)
 
   const chatFriends = async () => {
     setLoading(true)
+    setError(false)
+    setSuccess(false)
+    setData(null)
     try {
-        const request = await apiClient.get("friends", {withCredentials:true})
-        // no pasa de aqui
-        setData(request.data.result)
-        setSuccess(true)
+      const request = await apiClient.get("friends", { withCredentials: true })
+      setData(request.data.result)
+      setSuccess(true)
     } catch (error) {
-      if(axios.isAxiosError(error)){
-        console.log(error.response?.status)
-        console.log(error.response?.data)
-        console.log(error.response?.data.message)
-      }
-        setError(true)
+      setError(true)
     } finally {
-        setLoading(false)
+      setLoading(false)
     }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     chatFriends()
-  },[])
+  }, [])
 
-  return {data, loading, error, success}
+  return { data, loading, error, success }
 }

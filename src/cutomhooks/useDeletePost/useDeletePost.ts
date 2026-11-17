@@ -1,4 +1,3 @@
-import { isAxiosError } from "axios"
 import { useState } from "react"
 import { apiClient } from "../api.client"
 
@@ -10,14 +9,11 @@ export const useDeletePost = () => {
     const deletePost = async (postId:string) => {
         setLoading(true)
         setSuccess(false)
+        setError(false)
         try {
             await apiClient.delete(`post/${postId}`)
             setSuccess(true)
         } catch (error) {
-            if(isAxiosError(error)){
-                console.log(error.response?.status)
-                console.log(error.response?.data)
-            }
             setError(true)
         } finally {
             setLoading(false)

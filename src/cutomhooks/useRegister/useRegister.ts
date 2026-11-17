@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { apiClient } from "../api.client";
 
 export const useRegister = <T>() => {
@@ -17,11 +16,6 @@ export const useRegister = <T>() => {
       setData(request.data);
       setSuccess(true)
     } catch (error) {
-        if(axios.isAxiosError(error)){
-          console.log(error.response?.status);
-          console.log(error.response?.data);
-          console.log(error.response?.data.message);
-        }
       setError(true);
     } finally {
       setLoading(false);

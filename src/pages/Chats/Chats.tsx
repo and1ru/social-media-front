@@ -2,13 +2,8 @@ import { CardChat } from "../../components/CardChat/CardChat";
 import { Header } from "../../components/Header/Header";
 import { useChatsFriends } from "../../cutomhooks/useChatsFriends/useChatsFriends";
 
-interface DataType {
-    name: string;
-    id: string;
-}
-
 export const ChatsPage = () => {
-    const { data, error, loading } = useChatsFriends<DataType>();
+    const { data, error, loading } = useChatsFriends();
 
     return (
         <>

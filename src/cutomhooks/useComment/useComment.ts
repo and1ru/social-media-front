@@ -6,22 +6,27 @@ interface BodyT {
     comment: string;
 }
 
+interface Response {
+    message: string;
+    success: boolean;
+}
+
 export const useComment = () => {
-    const [data, setData] = useState()
+    const [data, setData] = useState<Response>()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
     const comment = async (body: BodyT) => {
         setLoading(true)
+        setError(false)
         try {
             const request = await apiClient.post("comment", body)
-            console.log(request.data)
             setData(request.data)
         } catch (error) {
             setError(true)
-            console.error(error)
+        } finally {
+            setLoading(false)
         }
-
     }
 
     return { data, loading, error, comment}

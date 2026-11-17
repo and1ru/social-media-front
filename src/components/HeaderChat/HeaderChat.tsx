@@ -24,8 +24,6 @@ export const HeaderChat = () => {
             if(id === data.userId){
                 setStatus(data.connected)
             }
-
-            console.log(data)
         })
 
         return () => {

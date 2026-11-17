@@ -6,12 +6,12 @@ export const useAcceptRequest = () => {
     const [successAccept, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
-    const acceptRequest = async (id:string) => {
+    const acceptRequest = async (id: string) => {
         setLoading(true)
         setSuccess(false)
+        setError(false)
         try {
-            const request = await apiClient.put("accept-request", {id})
-            console.log(request.data)
+            await apiClient.put("accept-request", { id })
             setSuccess(true)
         } catch (error) {
             setError(true)
@@ -20,5 +20,5 @@ export const useAcceptRequest = () => {
         }
     }
 
-    return {loading, successAccept, error, acceptRequest}
+    return { loading, successAccept, error, acceptRequest }
 }

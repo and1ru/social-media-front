@@ -35,12 +35,13 @@ export const CommentButton = ({ postId }: Props) => {
         }
 
         const body = {
-            comment: value,
+            comment: value.trim(),
             postId
         }
 
         await comment(body)
         await refetch()
+        
         setValue("")
     }
 
@@ -67,9 +68,9 @@ export const CommentButton = ({ postId }: Props) => {
                 </div>
 
                 <div className="px-10 py-10 mt-6 flex flex-col gap-3 overflow-y-auto h-80 items-center justify-center rounded-xl border border-dashed border-gray-300 dark:bg-gray-600">
-                    {loading && <p>cargando comentarios</p>}
-                    {error && <p>error al intentar cargar los comentarios</p>}
-                    {data?.commentCount === 0 ? <p>no comments yet</p> : 
+                    {loading && <p>{ languaje === "en" ? "loading..." : "cargando..." }</p>}
+                    {error && <p>{ languaje === "en" ? "ops something went wrong" : "ops algo salio mal" }</p>}
+                    {data?.commentCount === 0 ? <p> {languaje === "en" ? "there is not comments yet" : "no hay comentarios aun"}</p> : 
                         data?.comments.map((comentario) => (
                         <div className="w-full border p-3 rounded-lg flex gap-3 dark:bg-gray-500 dark:text-white" key={comentario._id}>
                             <div className="">
@@ -79,7 +80,6 @@ export const CommentButton = ({ postId }: Props) => {
                                 <p>{comentario.userName}</p>
                                 <p>{comentario.comment}</p>
                             </div>
-
                         </div>
                     ))}
                 </div>

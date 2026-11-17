@@ -18,10 +18,8 @@ export const usePost = (postId:string) => {
         setLoading(true)
         try {
             const request = await apiClient.get(`post/${postId}`)
-            console.log(request.data)
             setData(request.data.result)
         } catch (error) {
-            console.error(error)
             setError(true)
         } finally {
             setLoading(false)

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "../api.client"
-import { isAxiosError } from "axios"
 
 export const useFindUsers = <T>(name:string) => {
     const [data, setData] = useState<T[]>([])
@@ -15,10 +14,6 @@ export const useFindUsers = <T>(name:string) => {
             setData(request.data.result)
             setSuccess(true)
         } catch (error) {
-            if(isAxiosError(error)){
-                console.log(error.response?.data)
-                console.log(error.response?.status)
-            }
             setError(true)
         } finally {
             setLoading(false)

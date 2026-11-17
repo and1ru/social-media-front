@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { apiClient } from "../api.client";
 
 export const useLoging = <T>() => {
@@ -11,22 +10,16 @@ export const useLoging = <T>() => {
   const login = async (body: any) => {
     setLoading(true)
     seterror(false)
+    setSuccess(false)
+
     try {
-      const request = await apiClient.post("login", body, {withCredentials:true});
-      console.log(request.data)
+      const request = await apiClient.post("login", body, { withCredentials: true });
       localStorage.setItem("name", request.data.name)
       localStorage.setItem("userId", request.data.userId)
       setData(request.data);
       setSuccess(true)
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.response?.status);
-        console.log(error.response?.data);
-        console.log(error.response?.data.message);
-        seterror(true)
-      }
       seterror(true)
-      setSuccess(false)
     } finally {
       setLoading(false)
     }

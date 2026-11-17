@@ -1,4 +1,3 @@
-import { isAxiosError } from "axios"
 import { useEffect, useState } from "react"
 import { apiClient } from "../api.client"
 
@@ -12,14 +11,9 @@ export const useGetRequest = <T>() => {
         setLoading(true)
         try {
             const request = await apiClient.get("get-requests", {withCredentials:true})
-            console.log(request.data)
             setData(request.data.result)
             setSuccess(true)
         } catch (error) {
-            if(isAxiosError(error)){
-                console.log(error.response?.data)
-                console.log(error.response?.status)
-            }
             setError(true)
         } finally {
             setLoading(false)

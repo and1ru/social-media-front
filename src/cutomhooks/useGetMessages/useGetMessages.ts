@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { isAxiosError } from "axios"
 import { apiClient } from "../api.client"
 
 export const useGetMessages = <T>(friendId:string) => {
@@ -13,13 +12,8 @@ export const useGetMessages = <T>(friendId:string) => {
         try {
             const request = await apiClient.get(`get-messages/${friendId}`, {withCredentials:true})
             setData(request.data.result)
-            console.log(request.data)
             setSuccess(true)
         } catch (error) {
-            if(isAxiosError(error)){
-                console.log(error.response?.data)
-                console.log(error.response?.status)
-            }
             setError(true)
         } finally {
             setLoading(false)

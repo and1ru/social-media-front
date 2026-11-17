@@ -5,6 +5,7 @@ import { es, en } from '../../laguaje'
 interface Props {
     id: string
 }
+
 export const CopyButton = ({ id }: Props) => {
     const [isCopied, setIsCopied] = useState<boolean>(false)
     const { languaje } = useLanguajeContext()

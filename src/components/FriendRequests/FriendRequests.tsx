@@ -4,7 +4,7 @@ import type { requestType } from "../../schemas/request-schema";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
 import { useRejectRequest } from "../../cutomhooks/useRejectRequest/useRejectRequest";
-import { useAcceptRequest } from "../../cutomhooks/useAcceptRequst/useAcceptRequst";
+import { useAcceptRequest } from "../../cutomhooks/useAcceptRequest/useAcceptRequest";
 import { useEffect } from "react";
 
 export const FriendRequests = () => {

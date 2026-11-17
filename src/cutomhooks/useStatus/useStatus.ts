@@ -14,10 +14,8 @@ export const useStatus = (id:string) => {
         setLoading(true)
         try {
             const request = await apiClient.get(`status/${id}`)
-            console.log(request.data)
             setData(request.data)
         } catch (error) {
-            console.error(error)
             setError(true)
         } finally{
             setLoading(false)
