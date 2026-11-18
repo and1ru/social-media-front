@@ -6,11 +6,11 @@ export const useRejectRequest = () => {
     const [successReject, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
-    const rejectRequest = async (id:string) => {
+    const rejectRequest = async (id: string) => {
         setLoading(true)
         setSuccess(false)
         try {
-            await apiClient.put("reject-request", {id}, {withCredentials:true})
+            await apiClient.put("reject-request", { id })
             setSuccess(true)
         } catch (error) {
             setError(true)

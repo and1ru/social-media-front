@@ -20,7 +20,6 @@ export const usePostUser = (userId:string) => {
             const request = await apiClient.get(`post-user/${userId}`)
             setData(request.data.result)
         } catch (error) {
-            console.error(error)
             setError(true)
         } finally {
             setLoading(false)

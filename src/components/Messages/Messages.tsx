@@ -15,7 +15,7 @@ export const Messages = () => {
     const { id } = useParams()
     if (!id) return
 
-    const { data, error } = useGetMessages<MessageT>(id);
+    const { data, error } = useGetMessages(id);
     const { newMessages } = useNewMessages<MessageT>(id)
 
     const messagesEndRef = useRef<HTMLDivElement>(null);

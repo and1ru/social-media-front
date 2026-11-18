@@ -1,6 +1,5 @@
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
-import type { requestType } from "../../schemas/request-schema";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
 import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
@@ -9,7 +8,7 @@ import { useEffect } from "react";
 
 export const FriendRequests = () => {
     const { languaje } = useLanguajeContext()
-    const { data, error, loading, refetch } = useGetRequest<requestType>();
+    const { data, error, loading, refetch } = useGetRequest();
     const { rejectRequest, successReject } = useRejectRequest()
     const { acceptRequest, successAccept } = useAcceptRequest()
 

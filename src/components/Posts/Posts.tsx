@@ -4,7 +4,7 @@ import { PostCard } from "../PostCard/PostCard";
 
 
 export const Posts = () => {
-    const { data } = useGetPosts<postsType>()
+    const { data } = useGetPosts()
     return (
         <section className="flex flex-col gap-6 mt-8">
             {

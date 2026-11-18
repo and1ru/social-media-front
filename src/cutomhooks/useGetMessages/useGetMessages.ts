@@ -1,8 +1,21 @@
 import { useEffect, useState } from "react"
 import { apiClient } from "../api.client"
 
-export const useGetMessages = <T>(friendId:string) => {
-    const [data, setData] = useState<T[]>([])
+interface MessageT {
+    _id: string;
+    senderId: string;
+    message: string;
+    createAt: string;
+}
+
+interface Response {
+    message: string
+    success: boolean
+    result: MessageT
+}
+
+export const useGetMessages = (friendId:string) => {
+    const [data, setData] = useState<Response>()
     const [loading, setLoading] = useState<boolean>(false)
     const [success, setSuccess] = useState<boolean>(false)
     const [error, setError] = useState<boolean>(false)
@@ -10,6 +23,7 @@ export const useGetMessages = <T>(friendId:string) => {
     const getMessages =  async () => {
         setLoading(true)
         setError(false)
+        setSuccess(false)
         try {
             const request = await apiClient.get(`get-messages/${friendId}`)
             setData(request.data)

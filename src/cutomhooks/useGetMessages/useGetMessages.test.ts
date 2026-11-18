@@ -16,6 +16,9 @@ describe("useGetMessages", () => {
     const friendId = "123456789"
 
     const response = {
+        message:"got messages",
+        success: true,
+        result: []
     }
 
     beforeEach(() => {
@@ -33,7 +36,7 @@ describe("useGetMessages", () => {
 
         expect(result.current.loading).toBe(true);
         expect(result.current.error).toBe(false);
-        expect(result.current.data).toEqual([]);
+        expect(result.current.data).toBeUndefined();
 
         expect(mockGet).toHaveBeenCalledOnce();
         expect(mockGet).toHaveBeenCalledWith(`get-messages/${friendId}`);
@@ -83,7 +86,7 @@ describe("useGetMessages", () => {
         });
 
         expect(result.current.loading).toBe(false);
-        expect(result.current.data).toEqual([]);
+        expect(result.current.data).toBeUndefined();
 
         expect(mockGet).toHaveBeenCalledOnce();
         expect(mockGet).toHaveBeenCalledWith(`get-messages/${friendId}`);

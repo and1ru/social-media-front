@@ -31,7 +31,6 @@ export const useGetComment = (postId:string) => {
             const request = await apiClient.get(`comments/${postId}`)
             setData(request.data)
         } catch (error) {
-            console.error(error)
             setError(true)
         } finally {
             setLoading(false)

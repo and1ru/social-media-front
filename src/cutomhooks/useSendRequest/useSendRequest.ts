@@ -8,8 +8,10 @@ export const useSendRequest = () => {
 
     const sendRequest = async (receiver: string) => {
         setLoading(true)
+        setError(false)
+        setSuccess(false)
         try {
-            await apiClient.post("send-request", { receiver }, { withCredentials: true })
+            await apiClient.post("send-request", { receiver })
             setSuccess(true)
         } catch (error) {
             setError(true)

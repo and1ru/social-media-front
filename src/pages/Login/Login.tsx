@@ -2,13 +2,13 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema, type loginType } from "../../schemas/login-schema";
 import { useNavigate } from "react-router-dom";
-import { useLoging } from "../../cutomHooks/useLogin/useLogin";
+import { useLogin } from "../../cutomHooks/useLogin/useLogin";
 import { Input } from "../../components/Input/Input";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
 
 export const LoginPage = () => {
-    const { error, success, login } = useLoging()
+    const { error, success, login } = useLogin()
     const [openDialog, setOpenDialog] = useState<boolean>(false)
     const { handleSubmit, control, formState: { errors } } = useForm<loginType>({
         defaultValues: {
