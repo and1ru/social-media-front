@@ -1,15 +1,15 @@
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
-import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
+import { useGetRequest } from "../../customHooks/useGetRequest/useGetRequest";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
-import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
-import { useAcceptRequest } from "../../cutomHooks/useAcceptRequest/useAcceptRequest";
+import { useRejectRequest } from "../../customHooks/useRejectRequest/useRejectRequest";
+import { useAcceptRequest } from "../../customHooks/useAcceptRequest/useAcceptRequest";
 import { useEffect } from "react";
 
 export const FriendRequests = () => {
     const { languaje } = useLanguajeContext()
     const { data, error, loading, refetch } = useGetRequest();
-    const { rejectRequest, successReject } = useRejectRequest()
+    const { rejectRequest, success:successReject } = useRejectRequest()
     const { acceptRequest, successAccept } = useAcceptRequest()
 
     useEffect(()=> {
@@ -32,7 +32,7 @@ export const FriendRequests = () => {
                 </div>
             )}
             <section className="flex flex-col gap-5">
-                {data?.result.length > 0 ? (
+                { data?.result.length! > 0 ? (
                     data?.result.map((request) => (
                         <FriendCard
                             onAccept={acceptRequest}

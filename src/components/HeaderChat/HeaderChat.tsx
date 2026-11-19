@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useStatus } from "../../cutomHooks/useStatus/useStatus";
-import { socket } from "../../cutomHooks/api.socket";
+import { useStatus } from "../../customHooks/useStatus/useStatus";
+import { socket } from "../../customHooks/api.socket";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 

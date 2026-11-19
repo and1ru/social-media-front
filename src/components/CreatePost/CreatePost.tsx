@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useCreatePost } from "../../cutomHooks/useCreatePost/useCreatePost";
+import { useCreatePost } from "../../customHooks/useCreatePost/useCreatePost";
 import { SuccessMessage } from "../SuccesMessage/SuccesMessage";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'

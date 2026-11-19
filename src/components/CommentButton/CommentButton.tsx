@@ -2,8 +2,8 @@ import { useRef, useState } from "react";
 
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
-import { useGetComment } from "../../cutomHooks/useGetComment/useGetComment";
-import { useComment } from "../../cutomHooks/useComment/useComment";
+import { useGetComment } from "../../customHooks/useGetComment/useGetComment";
+import { useComment } from "../../customHooks/useComment/useComment";
 
 interface Props {
     postId: string;

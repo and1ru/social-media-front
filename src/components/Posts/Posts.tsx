@@ -1,4 +1,4 @@
-import { useGetPosts } from "../../cutomHooks/useGetPost/useGetPost";
+import { useGetPosts } from "../../customHooks/useGetPost/useGetPost";
 import { PostCard } from "../PostCard/PostCard";
 
 export const Posts = () => {
