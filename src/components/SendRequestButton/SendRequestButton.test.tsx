@@ -3,7 +3,7 @@ import { cleanup, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { SendRequestButton } from "./SendRequestButton";
-import { useSendRequest } from "../../customHooks/useSendRequest/useSendRequest";
+import { useSendRequest } from "../../cutomHooks/useSendRequest/useSendRequest";
 
 vi.mock("../../customHooks/useSendRequest/useSendRequest", () => ({
     useSendRequest: vi.fn(),

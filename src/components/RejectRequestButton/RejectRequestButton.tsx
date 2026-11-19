@@ -1,5 +1,5 @@
-import { useGetRequest } from "../../customHooks/useGetRequest/useGetRequest";
-import { useRejectRequest } from "../../customHooks/useRejectRequest/useRejectRequest";
+import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
+import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
 
 interface Props {
   id:string;

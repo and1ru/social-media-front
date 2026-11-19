@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 
 import { Messages } from "./Messages";
-import { useGetMessages } from "../../customHooks/useGetMessages/useGetMessages";
-import { useNewMessages } from "../../customHooks/useNewMessages/useNewMessages";
+import { useGetMessages } from "../../cutomHooks/useGetMessages/useGetMessages";
+import { useNewMessages } from "../../cutomHooks/useNewMessages/useNewMessages";
 
 vi.mock("../../customHooks/useGetMessages/useGetMessages", () => ({
     useGetMessages: vi.fn(),

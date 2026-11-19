@@ -18,7 +18,6 @@ export const FriendsPage = () => {
                     <FindUserForm />
                     <FriendRequests />
                 </section>
-
             </main>
         </>
     );

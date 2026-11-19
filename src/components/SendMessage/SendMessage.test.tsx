@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 import { SendMessage } from "./SendMessage";
-import { socket } from "../../customHooks/api.socket";
+import { socket } from "../../cutomHooks/api.socket";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from "../../laguaje";
 

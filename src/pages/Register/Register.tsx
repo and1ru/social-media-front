@@ -2,7 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { registerSchema, type registerType } from "../../schemas/register-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate } from "react-router-dom";
-import { useRegister } from "../../customHooks/useRegister/useRegister";
+import { useRegister } from "../../cutomHooks/useRegister/useRegister";
 import { Input } from "../../components/Input/Input";
 import { useEffect, useState } from "react";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";

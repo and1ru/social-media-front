@@ -1,5 +1,5 @@
 import { Navigate, useParams } from "react-router-dom";
-import { usePostUser } from "../../customHooks/usePostUser/usePostUser";
+import { usePostUser } from "../../cutomHooks/usePostUser/usePostUser";
 import { Header } from "../../components/Header/Header";
 import { PostCard } from "../../components/PostCard/PostCard";
 

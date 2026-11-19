@@ -18,8 +18,8 @@ import {
 import userEvent from "@testing-library/user-event";
 
 import { RejectRequestButton } from "./RejectRequestButton";
-import { useRejectRequest } from "../../customHooks/useRejectRequest/useRejectRequest";
-import { useGetRequest } from "../../customHooks/useGetRequest/useGetRequest";
+import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
+import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
 
 vi.mock("../../customHooks/useRejectRequest/useRejectRequest", () => ({
     useRejectRequest: vi.fn(),

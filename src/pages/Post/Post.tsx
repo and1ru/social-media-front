@@ -15,9 +15,14 @@ export const PostPage = () => {
     <>
       <Header />
       <main className="min-h-screen bg-gray-50 py-8 px-4 dark:bg-gray-700">
-        <PostCard contenido={data.content} fecha={data.fecha} id={data._id} name={data.name} userId={data.userId} />
+        <PostCard 
+          contenido={data.content} 
+          fecha={data.fecha} 
+          id={data._id} 
+          name={data.name} 
+          userId={data.userId} 
+        />
       </main>
     </>
-
   );
 };

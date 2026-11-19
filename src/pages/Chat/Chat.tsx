@@ -5,13 +5,13 @@ import { SendMessage } from "../../components/SendMessage/SendMessage";
 
 export const Chat = () => {
   return (
-<>
-    <Header />
-    <main className="flex h-[calc(100vh-64px)] flex-col bg-gray-50">
-        <HeaderChat/>
+    <>
+      <Header />
+      <main className="flex h-[calc(100vh-64px)] flex-col bg-gray-50">
+        <HeaderChat />
         <Messages />
-        <SendMessage/>
-    </main>
-</>
+        <SendMessage />
+      </main>
+    </>
   );
 };

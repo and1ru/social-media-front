@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router-dom";
-import { useFindUsers } from "../../customHooks/useFindUsers/useFindUsers";
+import { useFindUsers } from "../../cutomHooks/useFindUsers/useFindUsers";
 import { Header } from "../../components/Header/Header";
 import { UserCard } from "../../components/UserCard/UserCard";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
-import { useSendRequest } from "../../customHooks/useSendRequest/useSendRequest";
+import { useSendRequest } from "../../cutomHooks/useSendRequest/useSendRequest";
 import { useEffect } from "react";
 
 export const UsersPage = () => {

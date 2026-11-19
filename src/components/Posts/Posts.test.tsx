@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { cleanup, render, screen } from "@testing-library/react";
 import { Posts } from "./Posts";
-import { useGetPosts } from "../../customHooks/useGetPost/useGetPost";
+import { useGetPosts } from "../../cutomHooks/useGetPost/useGetPost";
 
 vi.mock("../../customHooks/useGetPost/useGetPost", () => ({
     useGetPosts: vi.fn(),

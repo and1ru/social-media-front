@@ -1,5 +1,5 @@
-import { useGetLikes } from "../../customHooks/useGetLikes/useGetLikes";
-import { useLikes } from "../../customHooks/useLikes/useLikes";
+import { useGetLikes } from "../../cutomHooks/useGetLikes/useGetLikes";
+import { useLikes } from "../../cutomHooks/useLikes/useLikes";
 
 interface Props {
     id:string

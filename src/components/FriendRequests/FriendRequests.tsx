@@ -1,9 +1,9 @@
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
-import { useGetRequest } from "../../customHooks/useGetRequest/useGetRequest";
+import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
 import { FriendCard } from "../FriendCard/FriendCard";
 import { es, en } from '../../laguaje'
-import { useRejectRequest } from "../../customHooks/useRejectRequest/useRejectRequest";
-import { useAcceptRequest } from "../../customHooks/useAcceptRequest/useAcceptRequest";
+import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
+import { useAcceptRequest } from "../../cutomHooks/useAcceptRequest/useAcceptRequest";
 import { useEffect } from "react";
 
 export const FriendRequests = () => {
