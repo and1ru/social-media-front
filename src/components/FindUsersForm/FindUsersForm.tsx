@@ -35,6 +35,5 @@ export const FindUserForm = () => {
                 </button>
             </form>
         </section>
-
     );
 };

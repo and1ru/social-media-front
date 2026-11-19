@@ -2,7 +2,6 @@ import { screen, render, cleanup } from "@testing-library/react";
 import { describe, it, expect, vi, afterEach } from 'vitest'
 import { CardChat } from "./CardChat";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext"
-import { useNavigate } from "react-router-dom";
 import { en, es } from "../../laguaje";
 import userEvent from "@testing-library/user-event";
 

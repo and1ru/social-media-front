@@ -1,14 +1,12 @@
-import { useGetPosts } from "../../cutomHooks/useGetPost/useGetPost";
-import type { postsType } from "../../schemas/posts-schema";
+import { useGetPosts } from "../../customHooks/useGetPost/useGetPost";
 import { PostCard } from "../PostCard/PostCard";
-
 
 export const Posts = () => {
     const { data } = useGetPosts()
     return (
         <section className="flex flex-col gap-6 mt-8">
             {
-                data?.map((post) => (
+                data?.result.map((post) => (
                     <PostCard
                         name={post.name}
                         id={post._id}

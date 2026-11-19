@@ -3,7 +3,7 @@ import { apiClient } from "../api.client"
 
 export const useRejectRequest = () => {
     const [loading, setLoading] = useState(false)
-    const [successReject, setSuccess] = useState(false)
+    const [success, setSuccess] = useState(false)
     const [error, setError] = useState(false)
 
     const rejectRequest = async (id: string) => {
@@ -19,5 +19,5 @@ export const useRejectRequest = () => {
         }
     }
 
-    return { loading, successReject, error, rejectRequest }
+    return { loading, success, error, rejectRequest }
 }

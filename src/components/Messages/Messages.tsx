@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import { useGetMessages } from "../../cutomHooks/useGetMessages/useGetMessages";
-import { useNewMessages } from "../../cutomHooks/useNewMessages/useNewMessages";
+import { useGetMessages } from "../../customHooks/useGetMessages/useGetMessages";
+import { useNewMessages } from "../../customHooks/useNewMessages/useNewMessages";
 import { Message } from "../Message/Message";
 
 interface MessageT {
@@ -27,10 +27,11 @@ export const Messages = () => {
     }, [data, newMessages]);
 
     if(error) return <Navigate to={"/private/error"} replace/>
+    
     return (
         <section className="h-full overflow-y-auto bg-gray-50 px-4 py-6 dark:bg-gray-800 transition duration-400 ease-in-out">
             <div className="mx-auto flex max-w-4xl flex-col gap-3">
-                {data.map((message) => (
+                {data?.result.map((message) => (
                     <Message
                         key={message._id}
                         senderId={message.senderId}

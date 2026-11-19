@@ -1,5 +1,5 @@
-import { useGetLikes } from "../../cutomHooks/useGetLikes/useGetLikes";
-import { useLikes } from "../../cutomHooks/useLikes/useLikes";
+import { useGetLikes } from "../../customHooks/useGetLikes/useGetLikes";
+import { useLikes } from "../../customHooks/useLikes/useLikes";
 
 interface Props {
     id:string
@@ -7,7 +7,7 @@ interface Props {
 
 export const LikeButton = ({id}: Props) => {
     const { like } = useLikes(id)
-    const { likes, refetch } = useGetLikes(id)
+    const { data, refetch } = useGetLikes(id)
 
     const handleClick = async () => {
         await like()
@@ -18,7 +18,7 @@ export const LikeButton = ({id}: Props) => {
         <button 
             onClick={handleClick}
             className="flex flex-1 justify-center rounded-lg py-2 transition hover:bg-gray-100 dark:hover:bg-gray-600">
-            {likes?.liked ? "❤️" : " 🤍 "} { likes?.likes}
+            {data?.result?.liked ? "❤️" : " 🤍 "} { data?.result.likes}
         </button>
     );
 };

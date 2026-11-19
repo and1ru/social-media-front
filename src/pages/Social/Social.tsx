@@ -1,7 +1,7 @@
 import { CreatePost } from "../../components/CreatePost/CreatePost";
 import { Header } from "../../components/Header/Header";
 import { Posts } from "../../components/Posts/Posts";
-import { useGetPosts } from "../../cutomHooks/useGetPost/useGetPost";
+import { useGetPosts } from "../../customHooks/useGetPost/useGetPost";
 import { type postsType } from "../../schemas/posts-schema";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'

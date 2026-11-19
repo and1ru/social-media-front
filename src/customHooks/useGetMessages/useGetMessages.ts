@@ -11,7 +11,7 @@ interface MessageT {
 interface Response {
     message: string
     success: boolean
-    result: MessageT
+    result: MessageT[]
 }
 
 export const useGetMessages = (friendId:string) => {

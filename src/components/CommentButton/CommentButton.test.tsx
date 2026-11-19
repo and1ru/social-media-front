@@ -13,11 +13,11 @@ const { useCommentMock, useGetCommentMock, refetchMock, commentMock } = vi.hoist
     commentMock: vi.fn()
 }))
 
-vi.mock("../../cutomhooks/useGetComment/useGetComment", () => ({
+vi.mock("../../customHooks/useGetComment/useGetComment", () => ({
     useGetComment: useGetCommentMock
 }))
 
-vi.mock("../../cutomhooks/useComment/useComment", () => ({
+vi.mock("../../customHooks/useComment/useComment", () => ({
     useComment: useCommentMock
 }))
 
@@ -33,8 +33,10 @@ describe("CommentButton", () => {
 
         useGetCommentMock.mockReturnValue({
             data: {
-                commentCount: 0,
-                comments: []
+                result: {
+                    commentCount: 0,
+                    comments: []
+                }
             },
             loading: false,
             error: null,
@@ -127,7 +129,7 @@ describe("CommentButton", () => {
         render(<CommentButton postId="123456789" />);
 
         // Abrimos el diálogo
-        await user.click(screen.getByRole("button", { name: /💬 0/ }));
+        await user.click(screen.getByRole("button", { name: "💬 0" }));
 
         // Comprobamos el título
         expect(
@@ -202,8 +204,10 @@ describe("CommentButton", () => {
     it("should display message when there is not comments in english", () => {
         useGetCommentMock.mockReturnValue({
             data: {
-                commentCount: 0,
+                result: {
+                    commentCount: 0,
                 comments: []
+                }
             },
             loading: false,
             error: false,
@@ -220,8 +224,10 @@ describe("CommentButton", () => {
     it("should display message when there is not comments in spanish", () => {
         useGetCommentMock.mockReturnValue({
             data: {
-                commentCount: 0,
+                result: {
+                    commentCount: 0,
                 comments: []
+                }
             },
             loading: false,
             error: false,
@@ -242,7 +248,8 @@ describe("CommentButton", () => {
     it("should render comments correctly", async () => {
         useGetCommentMock.mockReturnValue({
             data: {
-                commentCount: 2,
+                result: {
+                    commentCount: 2,
                 comments: [
                     {
                         _id: "1",
@@ -255,6 +262,7 @@ describe("CommentButton", () => {
                         comment: "Nice post!"
                     }
                 ]
+                }
             },
             loading: false,
             error: null,
@@ -409,8 +417,10 @@ describe("CommentButton", () => {
     it("should disable send button while loading", async () => {
         useGetCommentMock.mockReturnValue({
             data: {
+                result: {
                 commentCount: 0,
                 comments: []
+            }
             },
             loading: true,
             error: null,

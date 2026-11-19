@@ -1,5 +1,5 @@
-import { useGetRequest } from "../../cutomHooks/useGetRequest/useGetRequest";
-import { useRejectRequest } from "../../cutomHooks/useRejectRequest/useRejectRequest";
+import { useGetRequest } from "../../customHooks/useGetRequest/useGetRequest";
+import { useRejectRequest } from "../../customHooks/useRejectRequest/useRejectRequest";
 
 interface Props {
   id:string;
@@ -18,6 +18,7 @@ export const RejectRequestButton = ({id}:Props) => {
     
     if(error) return <p>error</p>
     if(loading) return <p>loading</p>
+
   return (
     <button onClick={handleClick} className="bg-red-500 p-2 rounded-lg">reject request</button>
   );

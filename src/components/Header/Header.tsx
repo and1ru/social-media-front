@@ -38,11 +38,11 @@ export const Header = () => {
                             <LogOutButton />
                         </li>
                         <li className="md:hidden">
-                            <div onClick={handleClick} className="flex flex-col gap-1 hover:bg-gray-300 dark:hover:bg-gray-500 p-4 rounded-full">
+                            <button onClick={handleClick} className="flex flex-col gap-1 hover:bg-gray-300 dark:hover:bg-gray-500 p-4 rounded-full">
                                 <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
                                 <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
                                 <div className="w-3 h-0.5 bg-black dark:bg-white"></div>
-                            </div>
+                            </button>
                         </li>
                     </ul>
                 </nav>
@@ -53,12 +53,12 @@ export const Header = () => {
                     <ul className="flex flex-col h-full w-full bg-white justify-between p-5 border-l border-gray-100 dark:bg-gray-700">
                         <li className="flex justify-between items-center pb-3 border-b border-gray-100">
                             <p className="font-semibold text-gray-500 text-xs uppercase tracking-wider dark:text-white">Menu</p>
-                            <p 
+                            <button 
                                 onClick={handleClick}
                                 className="cursor-pointer font-semibold text-gray-400 hover:text-gray-700 w-7 h-7 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors dark:text-white dark:hover:bg-gray-500 dark:hover:text-white"
                             >
                                 X
-                            </p>
+                            </button>
                         </li>
                         <li className="flex-1 py-4">
                             <div className="space-y-1">

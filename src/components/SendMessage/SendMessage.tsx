@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { socket } from "../../cutomHooks/api.socket";
+import { socket } from "../../customHooks/api.socket";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 import { es, en } from '../../laguaje'
 

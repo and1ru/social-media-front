@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useDeletePost } from "../../cutomHooks/useDeletePost/useDeletePost";
+import { useDeletePost } from "../../customHooks/useDeletePost/useDeletePost";
 import { useLanguajeContext } from "../../context/languaje/LanguajeContext";
 
 interface Props {
@@ -10,6 +10,7 @@ export const DeletePost = ({ postId }: Props) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null);
     const { deletePost } = useDeletePost()
     const { languaje } = useLanguajeContext()
+
     const openDialog = () => {
         dialogRef.current?.showModal();
     };
@@ -20,7 +21,6 @@ export const DeletePost = ({ postId }: Props) => {
 
     const handleDelete = () => {
         deletePost(postId)
-        location.reload()
         closeDialog();
     };
 

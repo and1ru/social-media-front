@@ -1,4 +1,4 @@
-import { useSendRequest } from "../../cutomHooks/useSendRequest/useSendRequest";
+import { useSendRequest } from "../../customHooks/useSendRequest/useSendRequest";
 
 interface Props {
   id:string;

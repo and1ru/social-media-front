@@ -32,13 +32,10 @@ export const UserCard = ({ name, id, relation, onClick }: Props) => {
       { relation === "pendding_received" ? <p>{ languaje === "en" ? en.relationRecive : es.relationRecive }</p>  : null}
       { relation === "none" ? <button
         onClick={handleClick}
-        // disabled={loading}
         className="rounded-xl bg-gray-900 px-5 py-2 font-medium text-white transition hover:bg-gray-700 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {/* {loading ? "Enviando..." : } */ "Agregar"}
       </button> : null }
 
-      {/* {error && <p className="text-sm text-red-500">Error</p>} */}
     </article>
   );
 };
